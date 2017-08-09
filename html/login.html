@@ -1,0 +1,34 @@
+<?php include("./html/header.html"); ?>
+  <!-- Page Content -->
+  <main role="main" aria-label="">
+    <div id="ibm-pcon">
+      <div id="ibm-content">
+        <div id="ibm-content-body" style="padding-top: 0px;">
+          <div id="ibm-content-main">
+            <div class="ibm-columns" data-widget="setsameheight">
+              <div class="ibm-col-4-1"></div>
+              <div class="ibm-col-4-2">
+                <h1>Login</h1>
+                <form action="/index.php">
+                  <div class="container">
+                    <label><b>IBM Email ID</b></label>
+                    <input type="text" placeholder="Enter Email ID" name="uname" required>
+                    <label style=""><b>IBM Employee ID</b></label>
+                    <input type="password" placeholder="Enter Employee ID" name="psw" required>
+                    <button type="submit">Login</button>
+                    <input type="checkbox" checked="checked">
+                    Remember me </div>
+                  <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" class="cancelbtn">Cancel</button>
+                    <!--<span class="psw">Forgot <a href="#">password?</a></span>--> </div>
+                </form>
+              </div>
+              <div class="ibm-col-4-1"></div>
+            </div>
+          </div>
+          <p class="ibm-ind-link ibm-nospacing ibm-icononly ibm-btt-auto ibm-hidden-small"><a tabindex="-1" href="#top" class="ibm-nospacing ibm-chevron-up-link">Back to top</a></p>
+        </div>
+      </div>
+    </div>
+  </main>
+<?php include("./html/footer.html"); ?>

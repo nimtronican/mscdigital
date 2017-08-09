@@ -1,1 +1,1434 @@
-
+<!DOCTYPE html>
+<html lang="en-US">
+		<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="shortcut icon" href="//www.ibm.com/favicon.ico" />
+		<meta name="geo.country" content="US" />
+		<meta name="dcterms.rights" content="© Copyright IBM Corp. 2016" />
+		<meta name="dcterms.date" content="2017-05-01" />
+		<meta name="robots" content="index, follow" />
+		<script>
+			digitalData = {
+				page: {
+					pageInfo: {
+						effectiveDate: '',
+						expiryDate: '',
+						language: 'en-US',
+						publishDate: '',
+						publisher: 'IBM Corporation',
+						version: 'v18',
+						ibm: {
+							contentProducer: 'github repo',
+							country: 'US',
+							industry: 'ZZ',
+							owner: 'Michael Santelia',
+							siteID: 'ESTSPE',
+							subject: 'SUZP00,SUZZZ,SUZ01,SU001',
+							type: 'CT739'
+						}
+					}
+				}
+			};
+		</script>
+		<meta name="description" content="Data tables provide a way to organize and clearly present relational information." />
+		<meta name="keywords" content="data tables" />
+		<title>IBM Northstar - Data tables</title>
+		<link href="https://1.www.s81c.com/common/v18/css/www.css" rel="stylesheet">
+		<link href="https://1.www.s81c.com/common/v18/css/syntaxhighlighter.css" rel="stylesheet">
+		<link href="https://1.www.s81c.com/common/v18/css/grid-fluid.css" rel="stylesheet">
+		<script src="https://1.www.s81c.com/common/stats/ida_stats.js"></script>
+		<script src="https://1.www.s81c.com/common/v18/js/www.js"></script>
+		<script src="https://1.www.s81c.com/common/v18/js/syntaxhighlighter.js"></script>
+		<link href="https://1.www.s81c.com/common/v18/css/tables.css" rel="stylesheet">
+		<script src="https://1.www.s81c.com/common/v18/js/tables.js"></script>
+		<link href="/standards/web/includes/stylesheet.css" rel="stylesheet">
+		<script src="/standards/web/includes/common.js"></script>
+		</head>
+		<body id="ibm-com" class="ibm-type">
+        <div id="ibm-top">
+          <div id="ibm-masthead" role="banner" aria-label="IBM">
+            <div id="ibm-universal-nav">
+              <nav role="navigation" aria-label="IBM">
+                <div id="ibm-home"><a href="http://www.ibm.com/us/en/">IBM®</a></div>
+                <ul id="ibm-menu-links" role="toolbar" aria-label="Site map">
+                  <li><a href="http://www.ibm.com/sitemap/us/en/">Site map</a></li>
+                </ul>
+              </nav>
+              <div id="ibm-search-module" role="search" aria-labelledby="ibm-masthead">
+                <form id="ibm-search-form" action="http://www.ibm.com/Search/" method="get">
+                  <p>
+                    <label for="q">IBM</label>
+                    <input type="text" maxlength="100" value="" placeholder="Search" name="q" id="q" aria-label="Search"/>
+                    <input type="hidden" value="18" name="v"/>
+                    <input type="hidden" value="utf" name="en"/>
+                    <input type="hidden" value="en" name="lang"/>
+                    <input type="hidden" value="us" name="cc"/>
+                    <span class="ibm-search-scope">
+                    <input type="checkbox" class="ibm-styled-checkbox" name="sn" value="Search standards" checked id="scopeoption">
+                    <label for="scopeoption">Search standards</label>
+                    </span>
+                    <input type="submit" id="ibm-search" class="ibm-btn-search" value="Submit"/>
+                  </p>
+                </form>
+                <form class="ibm-hide" id="standardSearch" action="//northstar-standard-search.eu-gb.mybluemix.net/search.php" method="get">
+                  <p>
+                    <input type="text" name="q" />
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div id="ibm-content-wrapper"> 
+            <!-- LEADSPACE_BEGIN -->
+            <header role="banner" aria-labelledby="ibm-pagetitle-h1">
+              <div class="ibm-sitenav-menu-container santeliafix">
+                <div class="ibm-sitenav-menu-name"><a href="/standards/web/">Northstar web standards</a></div>
+                <div class="ibm-sitenav-menu-list">
+                  <ul role="menubar" class="dynamic-content" data-type="content" data-file="/partials/navs/menu-nav.html">
+                    <li role="presentation"><a role="menuitem" href="/standards/web/design/">Design and code</a></li>
+                    <li role="presentation"><a role="menuitem" href="/standards/web/write/">Write</a></li>
+                    <li role="presentation"><a role="menuitem" href="/standards/web/research/">Research</a></li>
+                    <li role="presentation"><a role="menuitem" href="/standards/web/a-z-index/">A-Z Index</a></li>
+                  </ul>
+                </div>
+              </div>
+            </header>
+            <main role="main" aria-labelledby="ibm-pagetitle-h1">
+              <div id="ibm-pcon">
+                <div id="ibm-content">
+                  <div id="ibm-content-body" class="ns-design-sub-pages ibm-padding-top-0">
+                    <div id="ibm-content-main">
+                      <div class="ibm-band ibm-background-teal-50 ibm-padding-bottom-1 ibm-padding-top-1 ibm-alternate-background">
+                        <div class="ibm-columns ibm-padding-bottom-0">
+                          <div class="ibm-col-1-1">
+                            <h2 class="ibm-h1 ibm-padding-bottom-0">Design and Code</h2>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!-- Content IBM-COLUMN STARTS -->
+                      <div class="ibm-columns ibm-padding-bottom-3 ibm-padding-top-2">
+                        <div class="ibm-col-5-1 ibm-col-medium-6-2 ibm-hidden-small">
+                          <nav role="navigation" aria-label="Navigation for Design">
+                            <div id="ibm-navigation">
+                              <ul id="ibm-primary-links" role="tree" aria-labelledby="ibm-pagetitle-h1">
+                                <li role="presentation" id="ibm-overview"><a role="treeitem" href="/standards/web/design/">Design and code</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/adaptive-line-breaks/">Adaptive line breaks</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/anchor-links/">Anchor links</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/animation/">Animation</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/attachment-links/">Attachment links</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/audio-player/">Audio player</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/back-to-top/">Back to top links</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/block-links/">Block links</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/blocks/">Blocks</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/breadcrumbs/">Breadcrumbs</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/buttons/">Buttons</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/cards/">Cards</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/carousels/">Carousels</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/co-branding/">Co-branding and third-party logos</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/color-palette/">Color palette</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/contact-module/">Contact module</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/cookies/">Cookies</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/css-classes/">CSS classes</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/css3/">CSS3</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/data-tables/">Data tables</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/date-picker/">Date picker</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/date-time/">Date and time</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/design-checklist/">Design checklist</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/disable-modules/">Disable modules</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/disable-widgets/">Disable widgets</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/disadvantages-of-long-pages/">Disadvantages of long pages</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/external-links/">External links </a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/footers/">Footers</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/forms/">Forms</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/full-width-sections/">Full-width sections</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/naming-policy/">Globalization link naming policy</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/grids/">Grids</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/hide-images/">Hide content or images</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/horizontal_rules/">Horizontal rules </a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/html5/">HTML5</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/icons/">Icons</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/image-circles/">Image circles</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/imagery/">Imagery</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/infographics/">Infographics</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/lead-spaces/">Lead spaces</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/legal-footer/">Legal footer text</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/lists/">Lists</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/loading-spinner/">Loading spinner</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/locale-selector/">Locale selector</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/logo-animation/">Logo animation</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/masonry/">Masonry</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/masthead-search/">Masthead search</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/mastheads/">Mastheads</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/media-objects/">Media objects</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/migration-of-acquisitions/">Migration of acquisition</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/mte-modules/">MTE modules</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/navigation/">Navigation</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/notice-choice/">Notice and Choice</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/overlays/">Overlays </a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/padding-classes/">Padding classes</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/pagination-controls/">Pagination controls</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/parallax/">Parallax scrolling </a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/pull-quotes/">Pull quotes</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/responsive-design/">Responsive design</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/rss-feed-display/">RSS feed display</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/scrollbar-widget/">Scrollbar widget</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/scrolled-into-view/">Scrolled into view</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/seo/">Search Engine Optimization (SEO)</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/set-same-height/">Set same height</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/show-hide/">Show/Hide</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/social-media/">Social media</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/step-indicator/">Step indicator</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/survey-module/">Survey module</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/syntax-highlighter/">Syntax highlighter</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/text-alignment/">Text alignment</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/text/">Text</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/third-party/">Third-party hosting</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/tooltip/">Tooltips</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/video-looper/">Video looper</a></li>
+                                <li role="presentation"><a role="treeitem" href="/standards/web/design/video/">Video</a></li>
+                              </ul>
+                            </div>
+                          </nav>
+                        </div>
+                        <div class="ibm-col-5-4 ibm-col-medium-6-4"> 
+                          <!-- PAGE CONTENT STARTS HERE -->
+                          
+                          <h1 id="ibm-pagetitle-h1" class="ibm-h1 ibm-padding-top-0">Data tables</h1>
+                          <p>Data tables provide a way to organize and clearly present relational information. With data tables, you can alternate columns or rows, add color to cells or create a grid-style format. With the data table widget, you can add advanced functionality to your data tables.</p>
+                          <table class="ibm-data-table ibm-altcols" id="test1table">
+                            <thead>
+                              <tr>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Office</th>
+                                <th>Age</th>
+                                <th>Start date</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td> Tiger Nixon</td>
+                                <td> System Architect</td>
+                                <td> Edinburgh</td>
+                                <td> 61</td>
+                                <td> 2011/04/25</td>
+                              </tr>
+                              <tr>
+                                <td> Garrett Winters</td>
+                                <td> Accountant</td>
+                                <td> Tokyo</td>
+                                <td> 63</td>
+                                <td> 2011/07/25</td>
+                              </tr>
+                              <tr>
+                                <td> Ashton Cox</td>
+                                <td> Junior Technical Author</td>
+                                <td> San Francisco</td>
+                                <td> 66</td>
+                                <td> 2009/01/12</td>
+                              </tr>
+                              <tr>
+                                <td> Cedric Kelly</td>
+                                <td> Senior Javascript Developer</td>
+                                <td> Edinburgh</td>
+                                <td> 22</td>
+                                <td> 2012/03/29</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <ul class="ibm-twisty ibm-padding-top-1" data-widget="twisty">
+                            <li> <span class="ibm-twisty-head"><strong>Code</strong></span>
+                              <div class="ibm-twisty-body">
+                                <pre class="brush: js; html-script: true;" data-widget="syntaxhighlighter">
+								                &lt;table id="test1table" class="ibm-data-table ibm-altcols"&gt; 
+								                    &lt;thead&gt; 
+								                        &lt;tr&gt; 
+								                            &lt;th&gt;Name&lt;/th&gt; 
+								                            &lt;th&gt;Position&lt;/th&gt; 
+								                            &lt;th&gt;Office&lt;/th&gt; 
+								                            &lt;th&gt;Age&lt;/th&gt; 
+								                            &lt;th&gt;Start date&lt;/th&gt; 
+								
+								                        &lt;/tr&gt;
+								                    &lt;/thead&gt; 
+								                    &lt;tbody&gt; 
+								                        &lt;tr&gt; 
+								                            &lt;td&gt;Tiger Nixon&lt;/td&gt;
+								                            &lt;td&gt;System Architect&lt;/td&gt;
+								                            &lt;td&gt;Edinburgh&lt;/td&gt;
+								                            &lt;td&gt;61&lt;/td&gt;
+								                            &lt;td&gt;2011/04/25&lt;/td&gt;
+								
+								                        &lt;/tr&gt;
+								                        &lt;tr&gt; 
+								                            &lt;td&gt;Garrett Winters&lt;/td&gt;
+								                            &lt;td&gt;Accountant&lt;/td&gt;
+								                            &lt;td&gt;Tokyo&lt;/td&gt;
+								                            &lt;td&gt;63&lt;/td&gt;
+								                            &lt;td&gt;2011/07/25&lt;/td&gt;
+								
+								                        &lt;/tr&gt;
+								                        &lt;tr&gt; 
+								                            &lt;td&gt;Ashton Cox&lt;/td&gt;
+								                            &lt;td&gt;Junior Technical Author&lt;/td&gt;
+								                            &lt;td&gt;San Francisco&lt;/td&gt;
+								                            &lt;td&gt;66&lt;/td&gt;
+								                            &lt;td&gt;2009/01/12&lt;/td&gt;
+								
+								                        &lt;/tr&gt;
+								                        &lt;tr&gt; 
+								                            &lt;td&gt;Cedric Kelly&lt;/td&gt;
+								                            &lt;td&gt;Senior Javascript Developer&lt;/td&gt;
+								                            &lt;td&gt;Edinburgh&lt;/td&gt;
+								                            &lt;td&gt;22&lt;/td&gt;
+								                            &lt;td&gt;2012/03/29&lt;/td&gt;
+								
+								                        &lt;/tr&gt;
+								                    &lt;/tbody&gt;
+								                &lt;/table&gt;
+								        </pre>
+                              </div>
+                            </li>
+                          </ul>
+                          <ul data-widget="adjustanchorlinks">
+                            <li>All data tables require the class <code>ibm-data-table</code> for proper default styling.</li>
+                            <li>Do not use tables for layout purposes; instead, use <a href="/standards/web/design/grids" >grids</a>. Tables should be used only to display relational content or data.</li>
+                            <li>Use the <code>ibm-hidden-small</code> class to set the element to <code>display:none</code> on smaller screens.</li>
+                            <li>Use the <a href="#data-table-widget">data table widget</a> which includes a responsive plugin.</li>
+                            <li>Enable the <a href="#data-table-scroll-widget">data table scroll widget</a> to allow for scrolling on smaller screens.</li>
+                            <li>Apply the appropriate table markup<span class="dynamic-content" data-type="content" data-file="/partials/design/data-tables.html"></span>.</li>
+                            <li>The following supplemental JS and CSS files are required for this element:
+                              <ul>
+                                <li><code>&lt;link href="https://1.www.s81c.com/common/v18/css/tables.css" rel="stylesheet"&gt;</code></li>
+                                <li><code>&lt;script src="https://1.www.s81c.com/common/v18/js/tables.js"&gt;&lt;/script&gt;</code></li>
+                              </ul>
+                            </li>
+                          </ul>
+                          <div class="ibm-rule ibm-alternate ibm-padding-bottom-1">
+                            <hr />
+                          </div>
+                          <h2 class="ibm-h2">Data table</h2>
+                          <table class="ibm-data-table ibm-grid ibm-altrows" id="test1table">
+                            <caption>
+                            Human resources employee information
+                            </caption>
+                            <thead>
+                              <tr>
+                                <th> Name</th>
+                                <th> Position</th>
+                                <th> Office</th>
+                                <th> Age</th>
+                                <th> Start date</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td> Tiger Nixon</td>
+                                <td> System Architect</td>
+                                <td class="ibm-bgcolor-green-10"> Edinburgh</td>
+                                <td> 61</td>
+                                <td> 2011/04/25</td>
+                              </tr>
+                              <tr>
+                                <td> Garrett Winters</td>
+                                <td> Accountant</td>
+                                <td> Tokyo</td>
+                                <td> 63</td>
+                                <td> 2011/07/25</td>
+                              </tr>
+                              <tr>
+                                <td> Ashton Cox</td>
+                                <td> Junior Technical Author</td>
+                                <td> San Francisco</td>
+                                <td> 66</td>
+                                <td> 2009/01/12</td>
+                              </tr>
+                              <tr>
+                                <td> Cedric Kelly</td>
+                                <td> Senior Javascript Developer</td>
+                                <td> Edinburgh</td>
+                                <td> 22</td>
+                                <td> 2012/03/29</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <ul class="ibm-twisty ibm-padding-top-1" data-widget="twisty">
+                            <li> <span class="ibm-twisty-head"><strong>Code</strong></span>
+                              <div class="ibm-twisty-body">
+                                <pre class="brush: js; html-script: true;" data-widget="syntaxhighlighter">
+								                &lt;table id="test1table" class="ibm-data-table ibm-grid ibm-altrows"&gt; 
+								                    &lt;thead&gt; 
+								                        &lt;tr&gt; 
+								                            &lt;th&gt;Name&lt;/th&gt; 
+								                            &lt;th&gt;Position&lt;/th&gt; 
+								                            &lt;th&gt;Office&lt;/th&gt; 
+								                            &lt;th&gt;Age&lt;/th&gt; 
+								                            &lt;th&gt;Start date&lt;/th&gt; 
+								
+								                        &lt;/tr&gt;
+								                    &lt;/thead&gt; 
+								                    &lt;tbody&gt; 
+								                        &lt;tr&gt; 
+								                            &lt;td&gt;Tiger Nixon&lt;/td&gt;
+								                            &lt;td&gt;System Architect&lt;/td&gt;
+								                            &lt;td class="ibm-bgcolor-green-10"&gt;Edinburgh&lt;/td&gt;
+								                            &lt;td&gt;61&lt;/td&gt;
+								                            &lt;td&gt;2011/04/25&lt;/td&gt;
+								
+								                        &lt;/tr&gt;
+								                        &lt;tr&gt; 
+								                            &lt;td&gt;Garrett Winters&lt;/td&gt;
+								                            &lt;td&gt;Accountant&lt;/td&gt;
+								                            &lt;td&gt;Tokyo&lt;/td&gt;
+								                            &lt;td&gt;63&lt;/td&gt;
+								                            &lt;td&gt;2011/07/25&lt;/td&gt;
+								
+								                        &lt;/tr&gt;
+								                        &lt;tr&gt; 
+								                            &lt;td&gt;Ashton Cox&lt;/td&gt;
+								                            &lt;td&gt;Junior Technical Author&lt;/td&gt;
+								                            &lt;td&gt;San Francisco&lt;/td&gt;
+								                            &lt;td&gt;66&lt;/td&gt;
+								                            &lt;td&gt;2009/01/12&lt;/td&gt;
+								
+								                        &lt;/tr&gt;
+								                        &lt;tr&gt; 
+								                            &lt;td&gt;Cedric Kelly&lt;/td&gt;
+								                            &lt;td&gt;Senior Javascript Developer&lt;/td&gt;
+								                            &lt;td&gt;Edinburgh&lt;/td&gt;
+								                            &lt;td&gt;22&lt;/td&gt;
+								                            &lt;td&gt;2012/03/29&lt;/td&gt;
+								
+								                        &lt;/tr&gt;
+								                    &lt;/tbody&gt;
+								                &lt;/table&gt;
+								        </pre>
+                              </div>
+                            </li>
+                          </ul>
+                          <ul>
+                            <li> To include grid lines, add the class <code>ibm-grid</code> to the <code>&lt;table&gt;</code> tag.</li>
+                            <li> Use either alternating columns or rows, not both.</li>
+                            <li> To alternate columns, add the class <code>ibm-altcols</code> to the <code>&lt;table&gt;</code> tag.</li>
+                            <li> To alternate rows, add the class <code>ibm-altrows</code> to the <code>&lt;table&gt;</code> tag.</li>
+                            <li>To reduce the padding in each cell, add the <code>ibm-padding-small</code> class.</li>
+                            <li> Use the following color classes to highlight the background of a table cell. Add the <code>color</code> class to the <code>&lt;td&gt;</code> tag that you want to highlight.</li>
+                          </ul>
+                          <div class="ibm-columns">
+                            <div class="ibm-col-6-2">
+                              <ul class="ibm-plain-list" id="tableCellColors">
+                                <li class="ibm-padding-top-1 ibm-padding-bottom-1">
+                                  <table class="ibm-data-table" style="display:inline; width:30px;height:20px;">
+                                    <tbody>
+                                      <tr>
+                                        <td class="ibm-bgcolor-blue-10" style="padding:0;width:30px;">&nbsp;</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  &nbsp;ibm-bgcolor-blue-10</li>
+                                <li class="ibm-padding-bottom-1">
+                                  <table class="ibm-data-table" style="display:inline; width:30px;height:20px;">
+                                    <tbody>
+                                      <tr>
+                                        <td class="ibm-bgcolor-green-10" style="padding:0;width:30px;">&nbsp;</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  &nbsp;ibm-bgcolor-green-10</li>
+                                <li class="ibm-padding-bottom-1">
+                                  <table class="ibm-data-table" style="display:inline; width:30px;height:20px;">
+                                    <tbody>
+                                      <tr>
+                                        <td class="ibm-bgcolor-magenta-10" style="padding:0;width:30px;">&nbsp;</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  &nbsp;ibm-bgcolor-magenta-10</li>
+                                <li class="ibm-padding-bottom-1">
+                                  <table class="ibm-data-table" style="display:inline; width:30px;height:20px;">
+                                    <tbody>
+                                      <tr>
+                                        <td class="ibm-bgcolor-orange-10" style="padding:0;width:30px;">&nbsp;</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  &nbsp;ibm-bgcolor-orange-10</li>
+                              </ul>
+                            </div>
+                            <div class="ibm-col-6-2">
+                              <ul class="ibm-plain-list" id="tableCellColors">
+                                <li class="ibm-padding-top-1 ibm-padding-bottom-1">
+                                  <table class="ibm-data-table" style="display:inline; width:30px;height:20px;">
+                                    <tbody>
+                                      <tr>
+                                        <td class="ibm-bgcolor-purple-10" style="padding:0;width:30px;">&nbsp;</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  &nbsp;ibm-bgcolor-purple-10</li>
+                                <li class="ibm-padding-bottom-1">
+                                  <table class="ibm-data-table" style="display:inline; width:30px;height:20px;">
+                                    <tbody>
+                                      <tr>
+                                        <td class="ibm-bgcolor-red-10" style="padding:0;width:30px;">&nbsp;</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  &nbsp;ibm-bgcolor-red-10</li>
+                                <li class="ibm-padding-bottom-1">
+                                  <table class="ibm-data-table" style="display:inline; width:30px;height:20px;">
+                                    <tbody>
+                                      <tr>
+                                        <td class="ibm-bgcolor-teal-10" style="padding:0;width:30px;">&nbsp;</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  &nbsp;ibm-bgcolor-teal-10</li>
+                                <li class="ibm-padding-bottom-1">
+                                  <table class="ibm-data-table" style="display:inline; width:30px;height:20px;">
+                                    <tbody>
+                                      <tr>
+                                        <td class="ibm-bgcolor-yellow-10" style="padding:0;width:30px;">&nbsp;</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  &nbsp;ibm-bgcolor-yellow-10</li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="ibm-rule ibm-alternate ibm-padding-bottom-1">
+                            <hr />
+                          </div>
+                          <h2 class="ibm-h2" id="data-table-widget">Data table widget</h2>
+                          <p> The data table widget allows you to add advanced functionality to your data tables, such as filtering and searching, horizontal scrolling, show “x” entries, sorting and pagination.</p>
+                          <table class="ibm-data-table" data-info="true" data-ordering="true" data-paging="true" data-searching="true" data-widget="datatable" id="test1table">
+                            <thead>
+                              <tr>
+                                <th> Name</th>
+                                <th> Office</th>
+                                <th> Age</th>
+                                <th> Start date</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td> Tiger Nixon</td>
+                                <td> Edinburgh</td>
+                                <td> 61</td>
+                                <td> 2011/04/25</td>
+                              </tr>
+                              <tr>
+                                <td> Garrett Winters</td>
+                                <td> Tokyo</td>
+                                <td> 63</td>
+                                <td> 2011/07/25</td>
+                              </tr>
+                              <tr>
+                                <td> Ashton Cox</td>
+                                <td> San Francisco</td>
+                                <td> 66</td>
+                                <td> 2009/01/12</td>
+                              </tr>
+                              <tr>
+                                <td> Cedric Kelly</td>
+                                <td> Edinburgh</td>
+                                <td> 22</td>
+                                <td> 2012/03/29</td>
+                              </tr>
+                              <tr>
+                                <td> Airi Satou</td>
+                                <td> Tokyo</td>
+                                <td> 33</td>
+                                <td> 2008/11/28</td>
+                              </tr>
+                              <tr>
+                                <td> Brielle Williamson</td>
+                                <td> New York</td>
+                                <td> 61</td>
+                                <td> 2012/12/02</td>
+                              </tr>
+                              <tr>
+                                <td> Herrod Chandler</td>
+                                <td> San Francisco</td>
+                                <td> 59</td>
+                                <td> 2012/08/06</td>
+                              </tr>
+                              <tr>
+                                <td> Rhona Davidson</td>
+                                <td> Tokyo</td>
+                                <td> 55</td>
+                                <td> 2010/10/14</td>
+                              </tr>
+                              <tr>
+                                <td> Colleen Hurst</td>
+                                <td> San Francisco</td>
+                                <td> 39</td>
+                                <td> 2009/09/15</td>
+                              </tr>
+                              <tr>
+                                <td> Sonya Frost</td>
+                                <td> Edinburgh</td>
+                                <td> 23</td>
+                                <td> 2008/12/13</td>
+                              </tr>
+                              <tr>
+                                <td> Jena Gaines</td>
+                                <td> London</td>
+                                <td> 30</td>
+                                <td> 2008/12/19</td>
+                              </tr>
+                              <tr>
+                                <td> Quinn Flynn</td>
+                                <td> Edinburgh</td>
+                                <td> 22</td>
+                                <td> 2013/03/03</td>
+                              </tr>
+                              <tr>
+                                <td> Charde Marshall</td>
+                                <td> San Francisco</td>
+                                <td> 36</td>
+                                <td> 2008/10/16</td>
+                              </tr>
+                              <tr>
+                                <td> Haley Kennedy</td>
+                                <td> London</td>
+                                <td> 43</td>
+                                <td> 2012/12/18</td>
+                              </tr>
+                              <tr>
+                                <td> Tatyana Fitzpatrick</td>
+                                <td> London</td>
+                                <td> 19</td>
+                                <td> 2010/03/17</td>
+                              </tr>
+                              <tr>
+                                <td> Michael Silva</td>
+                                <td> London</td>
+                                <td> 66</td>
+                                <td> 2012/11/27</td>
+                              </tr>
+                              <tr>
+                                <td> Paul Byrd</td>
+                                <td> New York</td>
+                                <td> 64</td>
+                                <td> 2010/06/09</td>
+                              </tr>
+                              <tr>
+                                <td> Gloria Little</td>
+                                <td> New York</td>
+                                <td> 59</td>
+                                <td> 2009/04/10</td>
+                              </tr>
+                              <tr>
+                                <td> Bradley Greer</td>
+                                <td> London</td>
+                                <td> 41</td>
+                                <td> 2012/10/13</td>
+                              </tr>
+                              <tr>
+                                <td> Dai Rios</td>
+                                <td> Edinburgh</td>
+                                <td> 35</td>
+                                <td> 2012/09/26</td>
+                              </tr>
+                              <tr>
+                                <td> Jenette Caldwell</td>
+                                <td> New York</td>
+                                <td> 30</td>
+                                <td> 2011/09/03</td>
+                              </tr>
+                              <tr>
+                                <td> Yuri Berry</td>
+                                <td> New York</td>
+                                <td> 40</td>
+                                <td> 2009/06/25</td>
+                              </tr>
+                              <tr>
+                                <td> Caesar Vance</td>
+                                <td> New York</td>
+                                <td> 21</td>
+                                <td> 2011/12/12</td>
+                              </tr>
+                              <tr>
+                                <td> Doris Wilder</td>
+                                <td> Sidney</td>
+                                <td> 23</td>
+                                <td> 2010/09/20</td>
+                              </tr>
+                              <tr>
+                                <td> Angelica Ramos</td>
+                                <td> London</td>
+                                <td> 47</td>
+                                <td> 2009/10/09</td>
+                              </tr>
+                              <tr>
+                                <td> Gavin Joyce</td>
+                                <td> Edinburgh</td>
+                                <td> 42</td>
+                                <td> 2010/12/22</td>
+                              </tr>
+                              <tr>
+                                <td> Jennifer Chang</td>
+                                <td> Singapore</td>
+                                <td> 28</td>
+                                <td> 2010/11/14</td>
+                              </tr>
+                              <tr>
+                                <td> Brenden Wagner</td>
+                                <td> San Francisco</td>
+                                <td> 28</td>
+                                <td> 2011/06/07</td>
+                              </tr>
+                              <tr>
+                                <td> Fiona Green</td>
+                                <td> San Francisco</td>
+                                <td> 48</td>
+                                <td> 2010/03/11</td>
+                              </tr>
+                              <tr>
+                                <td> Shad Decker</td>
+                                <td> Edinburgh</td>
+                                <td> 51</td>
+                                <td> 2008/11/13</td>
+                              </tr>
+                              <tr>
+                                <td> Michael Bruce</td>
+                                <td> Singapore</td>
+                                <td> 29</td>
+                                <td> 2011/06/27</td>
+                              </tr>
+                              <tr>
+                                <td> Donna Snider</td>
+                                <td> New York</td>
+                                <td> 27</td>
+                                <td> 2011/01/25</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <ul class="ibm-twisty ibm-padding-top-1" data-widget="twisty">
+                            <li> <span class="ibm-twisty-head"><strong>Code</strong></span>
+                              <div class="ibm-twisty-body">
+                                <pre class="brush: js; html-script: true;" data-widget="syntaxhighlighter">
+								&lt;table class="ibm-data-table" data-info="true" data-ordering="true" data-paging="true" data-searching="true" data-widget="datatable" id="test1table"&gt;
+									&lt;thead&gt;
+										&lt;tr&gt;
+											&lt;th&gt;Name&lt;/th&gt;
+											&lt;th&gt;Office&lt;/th&gt;
+											&lt;th&gt;Age&lt;/th&gt;
+											&lt;th&gt;Start date&lt;/th&gt;
+										&lt;/tr&gt;
+									&lt;/thead&gt;
+									&lt;tbody&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Tiger Nixon&lt;/td&gt;
+											&lt;td&gt;Edinburgh&lt;/td&gt;
+											&lt;td&gt;61&lt;/td&gt;
+											&lt;td&gt;2011/04/25&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Garrett Winters&lt;/td&gt;
+											&lt;td&gt;Tokyo&lt;/td&gt;
+											&lt;td&gt;63&lt;/td&gt;
+											&lt;td&gt;2011/07/25&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Ashton Cox&lt;/td&gt;
+											&lt;td&gt;San Francisco&lt;/td&gt;
+											&lt;td&gt;66&lt;/td&gt;
+											&lt;td&gt;2009/01/12&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Cedric Kelly&lt;/td&gt;
+											&lt;td&gt;Edinburgh&lt;/td&gt;
+											&lt;td&gt;22&lt;/td&gt;
+											&lt;td&gt;2012/03/29&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Airi Satou&lt;/td&gt;
+											&lt;td&gt;Tokyo&lt;/td&gt;
+											&lt;td&gt;33&lt;/td&gt;
+											&lt;td&gt;2008/11/28&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Brielle Williamson&lt;/td&gt;
+											&lt;td&gt;New York&lt;/td&gt;
+											&lt;td&gt;61&lt;/td&gt;
+											&lt;td&gt;2012/12/02&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Herrod Chandler&lt;/td&gt;
+											&lt;td&gt;San Francisco&lt;/td&gt;
+											&lt;td&gt;59&lt;/td&gt;
+											&lt;td&gt;2012/08/06&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Rhona Davidson&lt;/td&gt;
+											&lt;td&gt;Tokyo&lt;/td&gt;
+											&lt;td&gt;55&lt;/td&gt;
+											&lt;td&gt;2010/10/14&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Colleen Hurst&lt;/td&gt;
+											&lt;td&gt;San Francisco&lt;/td&gt;
+											&lt;td&gt;39&lt;/td&gt;
+											&lt;td&gt;2009/09/15&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Sonya Frost&lt;/td&gt;
+											&lt;td&gt;Edinburgh&lt;/td&gt;
+											&lt;td&gt;23&lt;/td&gt;
+											&lt;td&gt;2008/12/13&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Jena Gaines&lt;/td&gt;
+											&lt;td&gt;London&lt;/td&gt;
+											&lt;td&gt;30&lt;/td&gt;
+											&lt;td&gt;2008/12/19&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Quinn Flynn&lt;/td&gt;
+											&lt;td&gt;Edinburgh&lt;/td&gt;
+											&lt;td&gt;22&lt;/td&gt;
+											&lt;td&gt;2013/03/03&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Charde Marshall&lt;/td&gt;
+											&lt;td&gt;San Francisco&lt;/td&gt;
+											&lt;td&gt;36&lt;/td&gt;
+											&lt;td&gt;2008/10/16&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Haley Kennedy&lt;/td&gt;
+											&lt;td&gt;London&lt;/td&gt;
+											&lt;td&gt;43&lt;/td&gt;
+											&lt;td&gt;2012/12/18&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Tatyana Fitzpatrick&lt;/td&gt;
+											&lt;td&gt;London&lt;/td&gt;
+											&lt;td&gt;19&lt;/td&gt;
+											&lt;td&gt;2010/03/17&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Michael Silva&lt;/td&gt;
+											&lt;td&gt;London&lt;/td&gt;
+											&lt;td&gt;66&lt;/td&gt;
+											&lt;td&gt;2012/11/27&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Paul Byrd&lt;/td&gt;
+											&lt;td&gt;New York&lt;/td&gt;
+											&lt;td&gt;64&lt;/td&gt;
+											&lt;td&gt;2010/06/09&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Gloria Little&lt;/td&gt;
+											&lt;td&gt;New York&lt;/td&gt;
+											&lt;td&gt;59&lt;/td&gt;
+											&lt;td&gt;2009/04/10&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Bradley Greer&lt;/td&gt;
+											&lt;td&gt;London&lt;/td&gt;
+											&lt;td&gt;41&lt;/td&gt;
+											&lt;td&gt;2012/10/13&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Dai Rios&lt;/td&gt;
+											&lt;td&gt;Edinburgh&lt;/td&gt;
+											&lt;td&gt;35&lt;/td&gt;
+											&lt;td&gt;2012/09/26&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Jenette Caldwell&lt;/td&gt;
+											&lt;td&gt;New York&lt;/td&gt;
+											&lt;td&gt;30&lt;/td&gt;
+											&lt;td&gt;2011/09/03&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Yuri Berry&lt;/td&gt;
+											&lt;td&gt;New York&lt;/td&gt;
+											&lt;td&gt;40&lt;/td&gt;
+											&lt;td&gt;2009/06/25&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Caesar Vance&lt;/td&gt;
+											&lt;td&gt;New York&lt;/td&gt;
+											&lt;td&gt;21&lt;/td&gt;
+											&lt;td&gt;2011/12/12&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Doris Wilder&lt;/td&gt;
+											&lt;td&gt;Sidney&lt;/td&gt;
+											&lt;td&gt;23&lt;/td&gt;
+											&lt;td&gt;2010/09/20&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Angelica Ramos&lt;/td&gt;
+											&lt;td&gt;London&lt;/td&gt;
+											&lt;td&gt;47&lt;/td&gt;
+											&lt;td&gt;2009/10/09&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Gavin Joyce&lt;/td&gt;
+											&lt;td&gt;Edinburgh&lt;/td&gt;
+											&lt;td&gt;42&lt;/td&gt;
+											&lt;td&gt;2010/12/22&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Jennifer Chang&lt;/td&gt;
+											&lt;td&gt;Singapore&lt;/td&gt;
+											&lt;td&gt;28&lt;/td&gt;
+											&lt;td&gt;2010/11/14&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Brenden Wagner&lt;/td&gt;
+											&lt;td&gt;San Francisco&lt;/td&gt;
+											&lt;td&gt;28&lt;/td&gt;
+											&lt;td&gt;2011/06/07&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Fiona Green&lt;/td&gt;
+											&lt;td&gt;San Francisco&lt;/td&gt;
+											&lt;td&gt;48&lt;/td&gt;
+											&lt;td&gt;2010/03/11&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Shad Decker&lt;/td&gt;
+											&lt;td&gt;Edinburgh&lt;/td&gt;
+											&lt;td&gt;51&lt;/td&gt;
+											&lt;td&gt;2008/11/13&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Michael Bruce&lt;/td&gt;
+											&lt;td&gt;Singapore&lt;/td&gt;
+											&lt;td&gt;29&lt;/td&gt;
+											&lt;td&gt;2011/06/27&lt;/td&gt;
+										&lt;/tr&gt;
+										&lt;tr&gt;
+											&lt;td&gt;Donna Snider&lt;/td&gt;
+											&lt;td&gt;New York&lt;/td&gt;
+											&lt;td&gt;27&lt;/td&gt;
+											&lt;td&gt;2011/01/25&lt;/td&gt;
+										&lt;/tr&gt;
+									&lt;/tbody&gt;
+								&lt;/table&gt;
+								</pre>
+                              </div>
+                            </li>
+                          </ul>
+                          <ul>
+                            <li> To enable the widget, add the <code>data-widget="datatable"</code> attribute to the <code>&lt;table&gt;</code> tag, and then any of the following attributes can be used. You can use an individual option or any combination of options.
+                              <ul>
+                                <li> <code>data-searching="true"</code> (enables text filtering/searching)</li>
+                                <li> <code>data-scrollaxis="x"</code> (allows horizontal scroll)</li>
+                                <li> <code>data-info="true"</code> (shows "Showing 1 to 10" text)</li>
+                                <li> <code>data-ordering="true"</code> (enables sorting)</li>
+                                <li> <code>data-paging="true"</code> (enables pagination)</li>
+                              </ul>
+                            </li>
+                          </ul>
+                          <div class="ibm-rule ibm-alternate ibm-padding-bottom-1">
+                            <hr />
+                          </div>
+                          <h2 class="ibm-h2"> Row selector widget</h2>
+                          <table class="ibm-data-table" data-tablerowselector="enable" id="test1table">
+                            <thead>
+                              <tr>
+                                <th scope="col"> <span class="ibm-checkbox-wrapper">
+                                  <input id="mycheckbox1" type="checkbox" class="ibm-styled-checkbox" />
+                                  <label for="mycheckbox1" class="ibm-field-label"><span class="ibm-access">Select row</span></label>
+                                  </span> </th>
+                                <th> Name</th>
+                                <th> Position</th>
+                                <th> Office</th>
+                                <th> Age</th>
+                                <th> Start date</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td scope="row"><span class="ibm-checkbox-wrapper">
+                                  <input id="mycheckbox2" type="checkbox" class="ibm-styled-checkbox" />
+                                  <label for="mycheckbox2" class="ibm-field-label"><span class="ibm-access">Select row</span></label>
+                                  </span></td>
+                                <td> Tiger Nixon</td>
+                                <td> System Architect</td>
+                                <td> Edinburgh</td>
+                                <td> 61</td>
+                                <td> 2011/04/25</td>
+                              </tr>
+                              <tr>
+                                <td scope="row"><span class="ibm-checkbox-wrapper">
+                                  <input id="mycheckbox3" type="checkbox" class="ibm-styled-checkbox" />
+                                  <label for="mycheckbox3" class="ibm-field-label"><span class="ibm-access">Select row</span></label>
+                                  </span></td>
+                                <td> Garrett Winters</td>
+                                <td> Accountant</td>
+                                <td> Tokyo</td>
+                                <td> 63</td>
+                                <td> 2011/07/25</td>
+                              </tr>
+                              <tr>
+                                <td scope="row"><span class="ibm-checkbox-wrapper">
+                                  <input id="mycheckbox4" type="checkbox" class="ibm-styled-checkbox" />
+                                  <label for="mycheckbox4" class="ibm-field-label"><span class="ibm-access">Select row</span></label>
+                                  </span></td>
+                                <td> Ashton Cox</td>
+                                <td> Junior Technical Author</td>
+                                <td> San Francisco</td>
+                                <td> 66</td>
+                                <td> 2009/01/12</td>
+                              </tr>
+                              <tr>
+                                <td scope="row"><span class="ibm-checkbox-wrapper">
+                                  <input id="mycheckbox5" type="checkbox" class="ibm-styled-checkbox" />
+                                  <label for="mycheckbox5" class="ibm-field-label"><span class="ibm-access">Select row</span></label>
+                                  </span></td>
+                                <td> Cedric Kelly</td>
+                                <td> Senior Javascript Developer</td>
+                                <td> Edinburgh</td>
+                                <td> 22</td>
+                                <td> 2012/03/29</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <ul class="ibm-twisty ibm-padding-top-1" data-widget="twisty">
+                            <li> <span class="ibm-twisty-head"><strong>Code</strong></span>
+                              <div class="ibm-twisty-body">
+                                <pre class="brush: js; html-script: true;" data-widget="syntaxhighlighter">
+												&lt;table class="ibm-data-table" data-tablerowselector="enable" id="test1table"&gt;
+													&lt;thead&gt;
+														&lt;tr&gt;
+															&lt;th scope="col"&gt;
+															&lt;span class="ibm-checkbox-wrapper"&gt; 
+															   &lt;input id="mycheckbox1" type="checkbox" class="ibm-styled-checkbox" /&gt; 
+															   &lt;label for="mycheckbox1" class="ibm-field-label"&gt;&lt;span class="ibm-access"&gt;Select row&lt;/span&gt;&lt;/label&gt; 
+															&lt;/span&gt;
+															&lt;/th&gt;
+															&lt;th&gt;Name&lt;/th&gt;
+															&lt;th&gt;Position&lt;/th&gt;
+															&lt;th&gt;Office&lt;/th&gt;
+															&lt;th&gt;Age&lt;/th&gt;
+															&lt;th&gt;Start date&lt;/th&gt;
+														&lt;/tr&gt;
+													&lt;/thead&gt;
+													&lt;tbody&gt;
+														&lt;tr&gt;
+															&lt;td scope="row"&gt;
+																&lt;span class="ibm-checkbox-wrapper"&gt; 
+															   &lt;input id="mycheckbox2" type="checkbox" class="ibm-styled-checkbox" /&gt; 
+															   &lt;label for="mycheckbox2" class="ibm-field-label"&gt;&lt;span class="ibm-access"&gt;Select row&lt;/span&gt;&lt;/label&gt; 
+															&lt;/span&gt;
+															&lt;/td&gt;
+															&lt;td&gt;Tiger Nixon&lt;/td&gt;
+															&lt;td&gt;System Architect&lt;/td&gt;
+															&lt;td&gt;Edinburgh&lt;/td&gt;
+															&lt;td&gt;61&lt;/td&gt;
+															&lt;td&gt;2011/04/25&lt;/td&gt;
+														&lt;/tr&gt;
+														&lt;tr&gt;
+															&lt;td scope="row"&gt;
+																&lt;span class="ibm-checkbox-wrapper"&gt; 
+															   &lt;input id="mycheckbox3" type="checkbox" class="ibm-styled-checkbox" /&gt; 
+															   &lt;label for="mycheckbox3" class="ibm-field-label"&gt;&lt;span class="ibm-access"&gt;Select row&lt;/span&gt;&lt;/label&gt; 
+															&lt;/span&gt;
+															&lt;/td&gt;
+															&lt;td&gt;Garrett Winters&lt;/td&gt;
+															&lt;td&gt;Accountant&lt;/td&gt;
+															&lt;td&gt;Tokyo&lt;/td&gt;
+															&lt;td&gt;63&lt;/td&gt;
+															&lt;td&gt;2011/07/25&lt;/td&gt;
+														&lt;/tr&gt;
+														&lt;tr&gt;
+															&lt;td scope="row"&gt;
+																&lt;span class="ibm-checkbox-wrapper"&gt; 
+															   &lt;input id="mycheckbox4" type="checkbox" class="ibm-styled-checkbox" /&gt; 
+															   &lt;label for="mycheckbox4" class="ibm-field-label"&gt;&lt;span class="ibm-access"&gt;Select row&lt;/span&gt;&lt;/label&gt; 
+															&lt;/span&gt;
+															&lt;/td&gt;
+															&lt;td&gt;Ashton Cox&lt;/td&gt;
+															&lt;td&gt;Junior Technical Author&lt;/td&gt;
+															&lt;td&gt;San Francisco&lt;/td&gt;
+															&lt;td&gt;66&lt;/td&gt;
+															&lt;td&gt;2009/01/12&lt;/td&gt;
+														&lt;/tr&gt;
+														&lt;tr&gt;
+															&lt;td scope="row"&gt;
+																&lt;span class="ibm-checkbox-wrapper"&gt;
+															   &lt;input id="mycheckbox5" type="checkbox" class="ibm-styled-checkbox" /&gt; 
+															   &lt;label for="mycheckbox5" class="ibm-field-label"&gt;&lt;span class="ibm-access"&gt;Select row&lt;/span&gt;&lt;/label&gt; 
+															&lt;/span&gt;
+															&lt;/td&gt;
+															&lt;td&gt;Cedric Kelly&lt;/td&gt;
+															&lt;td&gt;Senior Javascript Developer&lt;/td&gt;
+															&lt;td&gt;Edinburgh&lt;/td&gt;
+															&lt;td&gt;22&lt;/td&gt;
+															&lt;td&gt;2012/03/29&lt;/td&gt;
+														&lt;/tr&gt;
+													&lt;/tbody&gt;
+												&lt;/table&gt;	
+											</pre>
+                              </div>
+                            </li>
+                          </ul>
+                          <p>To enable the row selector, add checkboxes in the first column, add the <code>@data-tablerowselector="enable"</code> to the table, and include the auxiliary forms <code>JS</code> and <code>CSS</code> to properly format the row selector widget.</p>
+                          <div class="ibm-rule ibm-alternate ibm-padding-bottom-1">
+                            <hr />
+                          </div>
+                          <h2 class="ibm-h2" id="data-table-scroll-widget">Data table – horizontal scroll</h2>
+                          <p>The horizontal scroll feature allows your table to expand beyond the size of the column and scroll horizontally. This is useful when you have a wide table with several columns, but want to constrain it to a limited display area. To enable horizontal scrolling, add the <code>data-scrollaxis="x"</code> attribute to your <code>&lt;table&gt;</code>.</p>
+                          <table data-widget="datatable" data-scrollaxis="x" class="ibm-data-table" cellspacing="0" cellpadding="0" border="0">
+                            <caption>
+                            <em>This is the caption element text for this table.</em>
+                            </caption>
+                            <thead>
+                              <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Item</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Active</th>
+                                <th scope="col">City</th>
+                                <th scope="col">State</th>
+                                <th scope="col">Active</th>
+                                <th scope="col">City</th>
+                                <th scope="col">State</th>
+                                <th scope="col">Active</th>
+                                <th scope="col">City</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Active</th>
+                                <th scope="col">City</th>
+                                <th scope="col">State</th>
+                                <th scope="col">Active</th>
+                                <th scope="col">City</th>
+                                <th scope="col">State</th>
+                                <th scope="col">Active</th>
+                                <th scope="col">City</th>
+                                <th scope="col">State</th>
+                                <th scope="col">Active</th>
+                                <th scope="col">City</th>
+                                <th scope="col">State</th>
+                                <th scope="col"><a href="#sort"><span>Price</span><span class="ibm-icon">&nbsp;</span></a></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row"> ABCD </th>
+                                <td><a href="#">18739</a></td>
+                                <td>Lorem ipsum dolor sit amet</td>
+                                <td>Red</td>
+                                <td>Dec 2, 2010</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>CA</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>CA</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>CA</td>
+                                <td>Dec 2, 2010</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>CA</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>CA</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>CA</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>CA</td>
+                                <td>$1,234.56</td>
+                              </tr>
+                              <tr>
+                                <th scope="row"> ABCD </th>
+                                <td>98302</td>
+                                <td>Tellus at vehicula viverra</td>
+                                <td>Blue</td>
+                                <td>Nov 10, 2010</td>
+                                <td>no</td>
+                                <td>New York</td>
+                                <td>NY</td>
+                                <td>no</td>
+                                <td>New York</td>
+                                <td>NY</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>CA</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>Dec 2, 2010</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>CA</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>CA</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>CA</td>
+                                <td>CA</td>
+                                <td>$25,000</td>
+                              </tr>
+                              <tr>
+                                <th scope="row"> ABCD </th>
+                                <td><a href="#">18739</a></td>
+                                <td>Lorem ipsum dolor sit amet</td>
+                                <td>Red</td>
+                                <td>Dec 2, 2010</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>CA</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>CA</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>CA</td>
+                                <td>Dec 2, 2010</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>CA</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>CA</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>CA</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>CA</td>
+                                <td>$1,234.56</td>
+                              </tr>
+                              <tr>
+                                <th scope="row"> ABCD </th>
+                                <td>98302</td>
+                                <td>Tellus at vehicula viverra</td>
+                                <td>Blue</td>
+                                <td>Nov 10, 2010</td>
+                                <td>no</td>
+                                <td>New York</td>
+                                <td>NY</td>
+                                <td>no</td>
+                                <td>New York</td>
+                                <td>NY</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>CA</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>Dec 2, 2010</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>CA</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>CA</td>
+                                <td>yes</td>
+                                <td>Berkeley</td>
+                                <td>CA</td>
+                                <td>CA</td>
+                                <td>$25,000</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <ul class="ibm-twisty ibm-padding-top-1" data-widget="twisty">
+                            <li> <span class="ibm-twisty-head"><strong>Code</strong></span>
+                              <div class="ibm-twisty-body">
+                                <pre class="brush: js; html-script: true;" data-widget="syntaxhighlighter">
+															&lt;table data-widget="datatable" data-scrollaxis="x" class="ibm-data-table" cellspacing="0" cellpadding="0" border="0"&gt;
+															    &lt;caption&gt;
+															        &lt;em&gt;This is the caption element text for this table.&lt;/em&gt;
+															    &lt;/caption&gt;
+															    &lt;thead&gt;
+															        &lt;tr&gt;
+															            &lt;th scope="col"&gt;Name&lt;/th&gt;
+															            &lt;th scope="col"&gt;Item&lt;/th&gt;
+															            &lt;th scope="col"&gt;Description&lt;/th&gt;
+															            &lt;th scope="col"&gt;Type&lt;/th&gt;
+															            &lt;th scope="col"&gt;Date&lt;/th&gt;
+															            &lt;th scope="col"&gt;Active&lt;/th&gt;
+															            &lt;th scope="col"&gt;City&lt;/th&gt;
+															            &lt;th scope="col"&gt;State&lt;/th&gt;
+															            &lt;th scope="col"&gt;Active&lt;/th&gt;
+															            &lt;th scope="col"&gt;City&lt;/th&gt;
+															            &lt;th scope="col"&gt;State&lt;/th&gt;
+															            &lt;th scope="col"&gt;Active&lt;/th&gt;
+															            &lt;th scope="col"&gt;City&lt;/th&gt;
+															            &lt;th scope="col"&gt;Type&lt;/th&gt;
+															            &lt;th scope="col"&gt;Date&lt;/th&gt;
+															            &lt;th scope="col"&gt;Active&lt;/th&gt;
+															            &lt;th scope="col"&gt;City&lt;/th&gt;
+															            &lt;th scope="col"&gt;State&lt;/th&gt;
+															            &lt;th scope="col"&gt;Active&lt;/th&gt;
+															            &lt;th scope="col"&gt;City&lt;/th&gt;
+															            &lt;th scope="col"&gt;State&lt;/th&gt;
+															            &lt;th scope="col"&gt;Active&lt;/th&gt;
+															            &lt;th scope="col"&gt;City&lt;/th&gt;
+															            &lt;th scope="col"&gt;State&lt;/th&gt;
+															            &lt;th scope="col"&gt;Active&lt;/th&gt;
+															            &lt;th scope="col"&gt;City&lt;/th&gt;
+															            &lt;th scope="col"&gt;State&lt;/th&gt;
+															            &lt;th scope="col"&gt;&lt;a href="#sort"&gt;&lt;span&gt;Price&lt;/span&gt;&lt;span class="ibm-icon"&gt;&nbsp;&lt;/span&gt;&lt;/a&gt;&lt;/th&gt;
+															        &lt;/tr&gt;
+															    &lt;/thead&gt;
+															    &lt;tbody&gt;
+															        &lt;tr&gt;
+															            &lt;th scope="row"&gt; ABCD &lt;/th&gt;
+															            &lt;td&gt;&lt;a href="#"&gt;18739&lt;/a&gt;&lt;/td&gt;
+															            &lt;td&gt;Lorem ipsum dolor sit amet&lt;/td&gt;
+															            &lt;td&gt;Red&lt;/td&gt;
+															            &lt;td&gt;Dec 2, 2010&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;Dec 2, 2010&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;$1,234.56&lt;/td&gt;
+															        &lt;/tr&gt;
+															        &lt;tr&gt;
+															            &lt;th scope="row"&gt; ABCD &lt;/th&gt;
+															            &lt;td&gt;98302&lt;/td&gt;
+															            &lt;td&gt;Tellus at vehicula viverra&lt;/td&gt;
+															            &lt;td&gt;Blue&lt;/td&gt;
+															            &lt;td&gt;Nov 10, 2010&lt;/td&gt;
+															            &lt;td&gt;no&lt;/td&gt;
+															            &lt;td&gt;New York&lt;/td&gt;
+															            &lt;td&gt;NY&lt;/td&gt;
+															            &lt;td&gt;no&lt;/td&gt;
+															            &lt;td&gt;New York&lt;/td&gt;
+															            &lt;td&gt;NY&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;Dec 2, 2010&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;$25,000&lt;/td&gt;
+															        &lt;/tr&gt;
+															        &lt;tr&gt;
+															            &lt;th scope="row"&gt; ABCD &lt;/th&gt;
+															            &lt;td&gt;&lt;a href="#"&gt;18739&lt;/a&gt;&lt;/td&gt;
+															            &lt;td&gt;Lorem ipsum dolor sit amet&lt;/td&gt;
+															            &lt;td&gt;Red&lt;/td&gt;
+															            &lt;td&gt;Dec 2, 2010&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;Dec 2, 2010&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;$1,234.56&lt;/td&gt;
+															        &lt;/tr&gt;
+															        &lt;tr&gt;
+															            &lt;th scope="row"&gt; ABCD &lt;/th&gt;
+															            &lt;td&gt;98302&lt;/td&gt;
+															            &lt;td&gt;Tellus at vehicula viverra&lt;/td&gt;
+															            &lt;td&gt;Blue&lt;/td&gt;
+															            &lt;td&gt;Nov 10, 2010&lt;/td&gt;
+															            &lt;td&gt;no&lt;/td&gt;
+															            &lt;td&gt;New York&lt;/td&gt;
+															            &lt;td&gt;NY&lt;/td&gt;
+															            &lt;td&gt;no&lt;/td&gt;
+															            &lt;td&gt;New York&lt;/td&gt;
+															            &lt;td&gt;NY&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;Dec 2, 2010&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;yes&lt;/td&gt;
+															            &lt;td&gt;Berkeley&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;CA&lt;/td&gt;
+															            &lt;td&gt;$25,000&lt;/td&gt;
+															        &lt;/tr&gt;
+															    &lt;/tbody&gt;
+															&lt;/table&gt;
+														</pre>
+                              </div>
+                            </li>
+                          </ul>
+                          
+                          <!-- PAGE CONTENT ENDS HERE --> 
+                        </div>
+                      </div>
+                      <!-- Content IBM-COLUMN ENDS --> 
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
+          <div id="ibm-footer-module"></div>
+          <footer role="contentinfo" aria-label="IBM">
+            <div id="ibm-footer">
+              <ul>
+                <li><a href="//www.ibm.com/contact/us/en/">Contact</a></li>
+                <li><a href="//www.ibm.com/privacy/us/en/">Privacy</a></li>
+                <li><a href="//www.ibm.com/legal/us/en/">Terms of use</a></li>
+                <li><a href="//www.ibm.com/accessibility/us/en/">Accessibility</a></li>
+              </ul>
+            </div>
+          </footer>
+        </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<?php include("./html/header.html"); ?>
+  <!-- Page Content -->
+  <main role="main" aria-label="">
+    <div id="ibm-pcon">
+      <div id="ibm-content">
+        <div id="ibm-content-body" style="padding-top: 0px;">
+          <div id="ibm-content-main">
+            <div class="ibm-columns" data-widget="setsameheight">
+              <div class="ibm-col-4-1"></div>
+              <div class="ibm-col-4-2">
+              	<?php if(isset($SUCCESS_MSG)){ ?><h1 class="ibm-h3" style="color:#007D31;text-align:center;padding-top:20px;"><?php echo $SUCCESS_MSG; ?></h1><?php } ?>
+                <h1 class="ibm-h2" style="text-align:center;padding-top:20px;">Add New Metrics for Measurement</h1>
+                <form action="./admin.php?action=addmetrics" method="post">
+                	<input type="hidden" id="authcode" name="authcode" value="<?php echo $_SESSION['AUTHCODE']?>" />
+                  <div class="container">
+                    <label style=""><b>Frequency of Reporting</b></label>
+                    <select id="freq" name="freq" required>
+                        <option value="" selected>Select one</option>
+                        <option value="100">Daily</option>
+                        <option value="110">Weekly</option>
+                        <option value="111">Monthly</option>
+                        <option value="0">Adhoc</option>
+                    </select>
+                    <label style=""><b>Metrics</b></label>
+                    <input type="text" placeholder="Example: Overall visits" id="metrics" name="metrics" />
+                    
+                    <label></label>
+                    <button type="submit" class="ibm-btn-pri ibm-btn-teal-50 ibm-fullwidth">Add Metrics</button>
+                </form>
+              </div>
+              <div class="ibm-col-4-1"></div>
+            </div>
+            <div class="ibm-columns">
+                <div class="ibm-col-6-6" id="metricslist" style="margin-top:20px;border-top:2px solid #CCC;">
+                	<h1 class="ibm-h2" style="text-align:center;padding-top:20px;">List of available Metrics</h1>
+                    <table id="metricsdata" class="ibm-data-table ibm-grid ibm-altrows" width="100%"> 
+                    <thead> 
+                        <tr> 
+                            <th width="50px;">S.no.</th> 
+                            <th>Metrics</th> 
+                            <th>Frequency</th> 
+                        </tr>
+                    </thead> 
+                    <tbody> 
+                        <?php echo $metricslist ?>
+                    </tbody>
+                    </table>
+                  </div>
+            </div>
+          </div>
+          <p class="ibm-ind-link ibm-nospacing ibm-icononly ibm-btt-auto ibm-hidden-small"><a tabindex="-1" href="#top" class="ibm-nospacing ibm-chevron-up-link">Back to top</a></p>
+        </div>
+      </div>
+    </div>
+  </main>
+<?php include("./html/footer.html"); ?>
