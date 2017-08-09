@@ -6,10 +6,8 @@ include("./classes/dbObject.php");
 include("./lib/common.php");
 session_start();
 // db instance
-$db = new Mysqlidb('148.72.232.138', 'mscd_super', 'MSCD12#$@digi', 'mscdigital_taskanalysis');
-$db->port = 3306;
+$db = new Mysqlidb('sg2plcpnl0234.prod.sin2.secureserver.net', 'mscd_super', 'MSCD12#$@digi', 'mscdigital_taskanalysis');
+$db->port = 2083;
 // enable class autoloading
 //dbObject::autoload("models");
-
-
 ?>
