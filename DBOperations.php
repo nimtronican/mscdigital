@@ -12,6 +12,6 @@ CREATE TABLE IF NOT EXISTS `msc_discipline` (
   UNIQUE KEY `id` (`id`),
   KEY `id_2` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Job role details' AUTO_INCREMENT=12");
-echo $db;
+print_r($db);
 
 ?>
