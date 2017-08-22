@@ -1,4 +1,4 @@
-<?
+<?php
 
 include("./lib/settings.php");
 global $ERROR_MSG;
@@ -13,4 +13,5 @@ CREATE TABLE IF NOT EXISTS `msc_discipline` (
   KEY `id_2` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Job role details' AUTO_INCREMENT=12");
 echo $db;
+
 ?>
