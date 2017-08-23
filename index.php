@@ -7,15 +7,18 @@ if($_REQUEST['action'] == NULL){
 	}else{
 		include("./html/login.html");
 	}
-}else if($_REQUEST['action'] == "register"){
-	if(isset($_SESSION['AUTHCODE']) && $_POST['authcode'] == $_SESSION['AUTHCODE']){
+}else if(isset($_REQUEST['action']) && $_REQUEST['action'] == "register"){
+	if(isset($_SESSION['AUTHCODE']) && isset($_POST['authcode']) && $_POST['authcode'] == $_SESSION['AUTHCODE']){
 		//print_r($_POST);
 		$currID = $_POST['empid'];
 		$employee = dbObject::table("msc_employee");
 		$datacheck = $employee::where("emp_ibmid",$currID)->get();
 		if($datacheck){
-			$ERROR_MSG = "You have already Registered, Please login with your details";exit();
+			$ERROR_MSG = "You have already Registered, Please login with your details";
 		}else{
+			//echo "I am in";
+			//print_r($_POST);
+			if($_POST['teamlead']=="")$_POST['teamlead']=0;
 			$empdata = Array(
 			'emp_ibmid' => $_POST['empid'],
 			'emp_name' => $_POST['flname'],
@@ -24,14 +27,19 @@ if($_REQUEST['action'] == NULL){
 			'emp_discipline' => $_POST['discipline'],
 			'emp_job' => $_POST['jobrole'],
 			'emp_teamlead' => $_POST['teamlead'],
-			'emp_manager' => $_POST['manager']
+			'emp_manager' => $_POST['manager'],
 			);
+			//print_r($empdata);
 			$insemp = new $employee($empdata);
 			$id = $insemp->save();
+			//print_r($insemp);
+			//echo $db->getLastError;
 			if($id == null){
+				echo "Error";
 				print_r($insemp->errors);
 			}else{
 				//echo "User created with ID:".$id;
+				$_SESSION['UNAME'] = $_POST['flname'];
 				$ERROR_MSG = "Your Account is created successfully.";
 			}
 		}
@@ -41,11 +49,11 @@ if($_REQUEST['action'] == NULL){
 		global $tlselect;
 		global $managerselect;
 		$_SESSION['AUTHCODE'] = md5(date("H i s"));
-		$teams = dbObject::table("msc_discipline")->get();
-		$jobs = dbObject::table("msc_job")->get();
+		$teams = dbObject::table("msc_discipline")->orderBy("discipline_name","asc")->get();
+		$jobs = dbObject::table("msc_job")->orderBy("job_name","asc")->get();
 		$employee = dbObject::table("msc_employee");
-		$teamleads = $employee::where("emp_level","1")->get();
-		$managers = $employee::where("emp_level","2")->get();
+		$teamleads = $employee::where("emp_level","1")->orderBy("emp_name","asc")->get();
+		$managers = $employee::where("emp_level","2")->orderBy("emp_name","asc")->get();
 		foreach($teams as $t){
 			$teamselect .= '<option value="'.$t->id.'">'.$t->discipline_name.'</option>';
 		}
