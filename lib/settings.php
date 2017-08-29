@@ -4,14 +4,18 @@ ini_set('track_errors',1);
 ini_set('error_reporting',1);
 ini_set('display_startup_errors',1);
 ini_set('display_errors', 1);
-error_reporting(E_ALL); 
+error_reporting(E_ALL);
+echo "I am here 1";
 include("./classes/MysqliDb.php");
 include("./classes/dbObject.php");
 include("./lib/common.php");
 session_start();
+echo "I am here 2";
 // db instance 
 $db = new MysqliDb('sg2plcpnl0234.prod.sin2.secureserver.net', 'mscd_super', 'MSCD12#$@digi', 'mscdigital_taskanalysis');
 $db->port = 3306;
+echo "I am here 2";
+print_r($db);
 /*
 /////CLEARDB CONNECTION/////
 $url = parse_url(getenv("mysql://b2ad3d49dad29b:d54eb81f@us-cdbr-sl-dfw-01.cleardb.net:3306/ibmx_903feb6feb9b242?reconnect=true"));
