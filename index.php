@@ -54,6 +54,7 @@ if($_REQUEST['action'] == NULL){
 		$_SESSION['AUTHCODE'] = md5(date("H i s"));
 		echo "I am in 4<br>";
 		$teams = dbObject::table("msc_discipline")->orderBy("discipline_name","asc")->get();
+		print_r(dbObject.$teams);
 		echo "I am in 6<br>";
 		$jobs = dbObject::table("msc_job")->orderBy("job_name","asc")->get();
 		echo "I am in 7<br>";
