@@ -13,7 +13,7 @@ $dbhost = 'sg2plcpnl0234.prod.sin2.secureserver.net';
 $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 //$dblink = mysqli_connect($dbhost, $dbuser, $dbpass) or die("Unable to Connect to '$dbhost' ".mysqli_errno($dblink));
 //mysqli_select_db($dblink, $dbname) or die("Could not open the db '$dbname' ".mysqli_errno($dblink));
-$test_query = 'SELECT * from `msc_discipline` md ORDER BY md.`discipline_name` ASC';
+$test_query = 'SELECT * from `msc_discipline` md ORDER BY md.`discipline_name` DESC';
 $result = $conn->query($test_query);
 if ($result->num_rows > 0) {
     // output data of each row
