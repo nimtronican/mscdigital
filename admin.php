@@ -1,5 +1,5 @@
 <?php
-include("./lib/settings.php");
+include("./modlib/settings.php");
 global $ERROR_MSG;
 global $SUCCESS_MSG;
 if($_REQUEST['action'] == NULL){
