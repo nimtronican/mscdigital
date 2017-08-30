@@ -1,4 +1,5 @@
 <?php
+echo "I am outside<br>";
 include("./lib/settings.php");
 global $ERROR_MSG;
 if($_REQUEST['action'] == NULL){
@@ -8,6 +9,7 @@ if($_REQUEST['action'] == NULL){
 		include("./html/login.html");
 	}
 }else if(isset($_REQUEST['action']) && $_REQUEST['action'] == "register"){
+	echo "I am here loop 2 <br>";
 	if(isset($_SESSION['AUTHCODE']) && isset($_POST['authcode']) && $_POST['authcode'] == $_SESSION['AUTHCODE']){
 		//print_r($_POST);
 		$currID = $_POST['empid'];
@@ -48,11 +50,17 @@ if($_REQUEST['action'] == NULL){
 		global $jobselect;
 		global $tlselect;
 		global $managerselect;
+		echo "I am in 3<br>";
 		$_SESSION['AUTHCODE'] = md5(date("H i s"));
+		echo "I am in 4<br>";
 		$teams = dbObject::table("msc_discipline")->orderBy("discipline_name","asc")->get();
+		echo "I am in 6<br>";
 		$jobs = dbObject::table("msc_job")->orderBy("job_name","asc")->get();
+		echo "I am in 7<br>";
 		$employee = dbObject::table("msc_employee");
+		echo "I am in 8<br>";
 		$teamleads = $employee::where("emp_level","1")->orderBy("emp_name","asc")->get();
+		echo "I am in 9<br>";
 		$managers = $employee::where("emp_level","2")->orderBy("emp_name","asc")->get();
 		foreach($teams as $t){
 			$teamselect .= '<option value="'.$t->id.'">'.$t->discipline_name.'</option>';
@@ -69,6 +77,7 @@ if($_REQUEST['action'] == NULL){
 				$managerselect .= '<option value="'.$m->id.'">'.$m->emp_name.'</option>';
 		}
 	}
+	echo "I am in 9<br>";
 	include("./html/register.html");
 }else{
 	echo "Unauthenticated Access";
