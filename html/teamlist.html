@@ -10,8 +10,8 @@
               <div class="ibm-col-4-2">
               	<?php if(isset($SUCCESS_MSG)){ ?><h1 class="ibm-h3" style="color:#007D31;text-align:center;padding-top:20px;"><?php echo $SUCCESS_MSG; ?></h1><?php } ?>
                 <?php if(isset($ERROR_MSG)){ ?><h1 class="ibm-h3" style="color:#BA0003;text-align:center;padding-top:20px;"><?php echo $ERROR_MSG; ?></h1><?php } ?>
-                <h1 class="ibm-h2" style="text-align:center;padding-top:20px;">Add New Metrics for Measurement</h1>
-                <form action="./admin.php?action=addmetrics" method="post">
+                <!--<h1 class="ibm-h2" style="text-align:center;padding-top:20px;">Add New Metrics for Measurement</h1>
+                <form action="./admin.php?action=teamview" method="post">
                 	<input type="hidden" id="authcode" name="authcode" value="<?php echo $_SESSION['AUTHCODE']?>" />
                   <div class="container">
                     <label style=""><b>Frequency of Reporting</b></label>
@@ -27,23 +27,23 @@
                     
                     <label></label>
                     <button type="submit" class="ibm-btn-pri ibm-btn-teal-50 ibm-fullwidth">Add Metrics</button>
-                </form>
+                </form>-->
               </div>
               <div class="ibm-col-4-1"></div>
             </div>
             <div class="ibm-columns">
                 <div class="ibm-col-6-6" id="metricslist" style="margin-top:20px;border-top:2px solid #CCC;">
-                	<h1 class="ibm-h2" style="text-align:center;padding-top:20px;">List of available Metrics</h1>
+                	<h1 class="ibm-h2" style="text-align:center;padding-top:20px;">Team Members</h1>
                     <table id="metricsdata" class="ibm-data-table ibm-grid ibm-altrows" width="100%"> 
                     <thead> 
                         <tr> 
                             <th width="50px;">S.no.</th> 
-                            <th>Metrics</th> 
-                            <th>Frequency</th> 
+                            <th>Name</th> 
+                            <th>Email ID</th> 
                         </tr>
                     </thead> 
                     <tbody> 
-                        <?php echo $metricslist ?>
+                        <?php echo $teamlist ?>
                     </tbody>
                     </table>
                   </div>

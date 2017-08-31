@@ -8,19 +8,23 @@
             <div class="ibm-columns" data-widget="setsameheight">
               <div class="ibm-col-4-1"></div>
               <div class="ibm-col-4-2">
-                <h1>Login</h1>
-                <form action="/index.php">
+                <h1 class="ibm-h2" style="text-align:center;padding-top:20px;">Login</h1>
+                <?php if($ERROR_MSG != NULL){ ?>
+                <h1 class="ibm-h2" style="text-align:center;padding-top:20px;"><?php echo $ERROR_MSG; ?></h1>
+                <?php } ?>
+                <form action="./index.php" method="post">
                   <div class="container">
+                    <input type="hidden" id="lauthcode" name="lauthcode" value="<?php echo $_SESSION['LOGINAUTH']?>" />
                     <label><b>IBM Email ID</b></label>
-                    <input type="text" placeholder="Enter Email ID" name="uname" required>
+                    <input type="text" placeholder="Enter Email ID" id="uname" name="uname" required>
                     <label style=""><b>IBM Employee ID</b></label>
-                    <input type="password" placeholder="Enter Employee ID" name="psw" required>
+                    <input type="password" placeholder="Enter Employee ID - ALL CAPS" id="psw" name="psw" required>
                     <button type="submit">Login</button>
                     <input type="checkbox" checked="checked">
                     Remember me </div>
                   <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" class="cancelbtn">Cancel</button>
-                    <!--<span class="psw">Forgot <a href="#">password?</a></span>--> </div>
+                    <!--<button type="button" class="cancelbtn">Cancel</button>
+                    <span class="psw">Forgot <a href="#">password?</a></span>--> </div>
                 </form>
               </div>
               <div class="ibm-col-4-1"></div>

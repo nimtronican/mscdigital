@@ -25,18 +25,46 @@
     <div class="ibm-masthead-rightside" style="">
       <div class="ibm-parent-site-name"> <!--<span style="font-weight: bold; color:#00B2EF; position: absolute; right: 300px; width: 900px;line-height: 50px; font-size: 15px; display: inline-flex;">New Marketing Top Sheet 2.0 is now live!! Please &nbsp <a style="text-decoration: underline;" href="https://hub.webmaster.ibm.com/mac/marketing-top-sheet-2-0/"  target="_blank">refer to this blog</a> &nbsp and this &nbsp <a style="text-decoration: underline;" href="https://ibm.ent.box.com/s/pgm7r3cbgug0ss0o2el0mja1hcwjvktm"  target="_blank">enablement deck</a> &nbsp for more information.</span>--> <!--<span class="right ibm-thumbnail"><img class="userimg" src="https://faces.tap.ibm.com/imagesrv/nimalakanth@in.ibm.com"></span>--> <a id="emailaddress">
       Welcome! 
-      <?php if(isset($_SESSION['UNAME']) && $_SESSION['UNAME']!=""){echo $_SESSION['UNAME'];}else{echo "New User";}?>
+      <?php if(isset($_SESSION['USER']) && $_SESSION['USER']!=""){echo $_SESSION['USER']['name'];}else{echo "New User";}?>
       </a> </div>
-      <!--<ul class="ibm-masthead-iconsonly" role="menubar" aria-label="Tools">
+      <ul class="ibm-masthead-iconsonly" role="menubar" aria-label="Tools">
         <li class="ibm-masthead-item-menu" role="presentation">
           <button class="ibm-menu-link" role="menubutton">Site navigation</button>
         </li>
-      </ul>--> 
+      </ul> 
     </div>
   </nav>
 </div>
 <div class="ibm-sitenav-menu-container">
-  <div class="ibm-sitenav-menu-name"><a href="#" style="font-weight: bold;">Marketing Services Center - Digital Practice</a></div>
-</div>
+  <div class="ibm-sitenav-menu-name"><a href="./index.php" style="font-weight: bold;">Digital Performance Dashboard</a></div>
+  <div class="ibm-sitenav-menu-list">
+    <ul role="menubar">
+    <?php if(isset($_SESSION['ULEVEL']) && $_SESSION['ULEVEL'] > 0) {?>
+    <li role="presentation" class="ibm-haschildlist">
+      <span role="menuitem">Admin Tools</span>
+      <ul role="menu">
+        <li><a href="./admin.php?action=addmetrics">Add Metrics</a>
+        </li>
+        <li><a href="./admin.php?action=attachmetrics">Attach Metrics</a>
+        </li>
+        <!--<li><a href="./admin.php?action=teammetrics">View Team Metrics</a>
+        </li>-->
+        <li><a href="./admin.php?action=teamview">Team Members</a>
+        </li>
+      </ul>
+    </li>
+    <?php } ?>
+    <?php if(isset($_SESSION['LOGIN'])) {?>
+    <li role="presentation" class="ibm-haschildlist">
+      <span role="menuitem">Settings</span>
+      <ul role="menu">
+        <li><a href="./index.php?logout">Logout</a>
+        </li>
+      </ul>
+    </li>
+    <?php } ?>
+    </ul>
+  </div>
+  </div>
 <!-- Content wrapper begin -->
 <div id="ibm-content-wrapper">

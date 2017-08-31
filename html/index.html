@@ -9,18 +9,18 @@
           <div class="ibm-columns ibm-padding-top-1 ibm-alternate-background" data-widget="setsameheight" data-items="> div">
             <div class="ibm-col-5-1"></div>
             <div class="ibm-col-5-1 ibm-background-blue-70">
-              <h2>Employee Name: Employee Name</h2>
+              <h2>Team:<br><?php echo $_SESSION['USER']['team']?></h2>
             </div>
             <div class="ibm-col-5-1 ibm-background-blue-80">
-              <h2>Manager's Name: Manager's Name</h2>
+              <h2>Job Role:<br><?php echo $_SESSION['USER']['role']?></h2>
             </div>
             <div class="ibm-col-5-1 ibm-background-blue-90">
-              <h2>Employee Role: Employee Role</h2>
+              <h2><?php echo getEmpLevel($_SESSION['ULEVEL'])?></h2>
             </div>
             <div class="ibm-col-5-1"></div>
           </div>
           <hr>
-          <div class="ibm-columns ibm-padding-top-1 ibm-alternate-background" data-widget="setsameheight" data-items="> div">
+          <!--<div class="ibm-columns ibm-padding-top-1 ibm-alternate-background" data-widget="setsameheight" data-items="> div">
             <div class="ibm-col-5-1"></div>
             <div class="ibm-col-5-2 ibm-background-teal-70">
               <h2>Question: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
@@ -49,11 +49,11 @@
               <input type="text" placeholder="Enter Number" name="que01" required>
             </div>
             <div class="ibm-col-5-1"></div>
-          </div>
+          </div>-->
           <hr>
           <div>
             <div class="ibm-columns ibm-padding-top-1">
-              <table data-widget="datatable" data-scrollaxis="x" class="ibm-data-table" cellspacing="0" cellpadding="0" border="0">
+              <!--<table data-widget="datatable" data-scrollaxis="x" class="ibm-data-table" cellspacing="0" cellpadding="0" border="0">
                 <caption>
                 <em>This is the caption element text for this table.</em>
                 </caption>
@@ -79,7 +79,7 @@
                     <?php echo $vals;?>
                   </tr>
                 </tbody>
-              </table>
+              </table>-->
             </div>
           </div>
         </div>
