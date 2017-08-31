@@ -2,11 +2,12 @@
 include("./modlib/settings.php");
 global $ERROR_MSG;
 global $SUCCESS_MSG;
-if($_REQUEST['action'] == NULL){
-	if(isset($_SESSION['login'])){
-		include("./html/admin.html");
+if(isset($_REQUEST['action']) && $_REQUEST['action'] == NULL){
+	if(isset($_SESSION['LOGIN'])){
+		include("./html/index.html");
 	}else{
-		include("./html/login.html");
+		header("location:./index.php");
+		exit();
 	}
 }else if($_REQUEST['action'] == "addmetrics"){
 	if(isset($_SESSION['AUTHCODE']) && isset($_POST['authcode']) && $_POST['authcode'] == $_SESSION['AUTHCODE']){
@@ -16,7 +17,7 @@ if($_REQUEST['action'] == NULL){
 		//$empmetricsrel = dbObject::table("msc_data");
 		$datacheck = $metrics::where("metrics_text",$currmetrics)->get();
 		if($datacheck){
-			$ERROR_MSG = "This metrics is available already";exit();
+			$ERROR_MSG = "This metrics is already available.<br>Please verify list of Metrics before adding!";
 		}else{
 			$metricsdata = Array(
 			'metrics_text' => $_POST['metrics'],
@@ -63,9 +64,10 @@ if($_REQUEST['action'] == NULL){
 	global $empmetricslist;
 	//Employee list
 	$_SESSION['AUTHCODE'] = md5(date("H i s"));
-	$employee = dbObject::table("msc_employee")->get();
+	$employee = $db->rawQuery('SELECT me.id,me.emp_name FROM `msc_employee` me WHERE me.id = '.$_SESSION["UID"].' OR me.emp_teamlead = '.$_SESSION["UID"].' OR me.emp_manager = '.$_SESSION["UID"].' ORDER BY me.emp_name ASC');
+	//dbObject::table("msc_employee")->get();
 	 foreach($employee as $emp){
-		$employeelist .= '<option value="'.$emp->id.'">'.$emp->emp_name.'</option>';
+		$employeelist .= '<option value="'.$emp['id'].'">'.$emp['emp_name'].'</option>';
 	 }
 	//Metrics list - Dynamic
 	$metrics = dbObject::table("msc_metrics")->get();
@@ -80,6 +82,16 @@ if($_REQUEST['action'] == NULL){
 	 }
 	 
 	include("./html/empmetrics.html");
+}else if($_REQUEST['action'] == "teamview"){
+	global $teamlist;
+	//$_SESSION['AUTHCODE'] = md5(date("H i s"));
+	$employee = $db->rawQuery('SELECT me.emp_email,me.emp_name FROM `msc_employee` me WHERE me.id = '.$_SESSION["UID"].' OR me.emp_teamlead = '.$_SESSION["UID"].' OR me.emp_manager = '.$_SESSION["UID"].' ORDER BY me.emp_name ASC');
+	 $num = 1;
+	 foreach($employee as $emp){
+		$teamlist .= '<tr><td>'.$num.'</td><td>'.$emp['emp_name'].'</td><td>'.$emp['emp_email'].'</td></tr>';
+		$num++;
+	 }
+	include("./html/teamlist.html");
 }else{
 	echo "Unauthenticated Access";
 }

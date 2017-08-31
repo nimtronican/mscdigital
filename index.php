@@ -1,10 +1,37 @@
 <?php
 include("./modlib/settings.php");
 global $ERROR_MSG;
-if($_REQUEST['action'] == NULL){
-	if(isset($_SESSION['login'])){
+if(!isset($_REQUEST['action'])){
+	if(isset($_SESSION['LOGIN'])){
+		if(isset($_REQUEST['logout'])){
+			unset($_SESSION['LOGIN']);
+			header("location:./index.php");
+		}
 		include("./html/index.html");
+	}else if(isset($_SESSION['LOGINAUTH']) && isset($_POST['lauthcode']) && $_SESSION['LOGINAUTH'] == $_POST['lauthcode']){
+		$loginret = getLoginDetails($db,$_POST['uname'],$_POST['psw']);
+		//$discjob = getDiscJob($db,$loginret['emp_discipline'],$loginret['emp_job']);//DBlink,team,jobrole
+		//print_r($loginret);
+		//print_r($discjob);
+		//exit();
+		if($loginret['id']>0){
+			$_SESSION['LOGIN'] = 1;
+			$_SESSION['UID'] = $loginret['id'];
+			$_SESSION['ULEVEL'] = $loginret['emp_level'];
+			$_SESSION['USER'] = array("name"=>$loginret['emp_name'],
+										 "team"=>$loginret['discipline_name'],
+										 "role"=>$loginret['job_name']);
+			include("./html/index.html");
+		}else{
+			$ERROR_MSG = "LOGIN FAILED... Please check your Credentials";
+			include("./html/login.html");
+		}
 	}else{
+		$_SESSION['USER'] = "";
+		$_SESSION['UID'] = "";
+		$_SESSION['ULEVEL'] = "";
+		$_SESSION['LOGINAUTH'] = md5(date("H i s")).rand();
+		unset($_SESSION['LOGIN']);
 		include("./html/login.html");
 	}
 }else if(isset($_REQUEST['action']) && $_REQUEST['action'] == "register"){
