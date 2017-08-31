@@ -1,10 +1,10 @@
 <?php
-/*ini_set('xmlrpc_errors',1);
+ini_set('xmlrpc_errors',1);
 ini_set('track_errors',1);
 ini_set('error_reporting',1);
 ini_set('display_startup_errors',1);
 ini_set('display_errors', 1);
-error_reporting(E_ALL); */
+error_reporting(E_ALL);
 include("./classes/MysqliDb.php");
 include("./classes/dbObject.php");
 include("./modlib/common.php");
