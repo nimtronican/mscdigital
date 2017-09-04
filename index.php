@@ -1,7 +1,7 @@
 <?php
 include("./modlib/settings.php");
 global $ERROR_MSG;
-if(!isset($_REQUEST['action'])){
+if(!isset($_REQUEST['action']) || isset($_SESSION['LOGIN'])){
 	if(isset($_SESSION['LOGIN'])){
 		if(isset($_REQUEST['logout'])){
 			unset($_SESSION['LOGIN']);
@@ -67,7 +67,7 @@ if(!isset($_REQUEST['action'])){
 			}else{
 				//echo "User created with ID:".$id;
 				$_SESSION['UNAME'] = $_POST['flname'];
-				$ERROR_MSG = "Your Account is created successfully.";
+				$ERROR_MSG = "Your Account is created successfully. Please <a href='./'>LOGIN</a>";
 			}
 		}
 	}else{

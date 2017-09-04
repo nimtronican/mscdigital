@@ -2,7 +2,7 @@
 include("./modlib/settings.php");
 global $ERROR_MSG;
 global $SUCCESS_MSG;
-if(isset($_REQUEST['action']) && $_REQUEST['action'] == NULL){
+if((isset($_REQUEST['action']) && $_REQUEST['action'] == NULL) || !isset($_SESSION['LOGIN'])){
 	if(isset($_SESSION['LOGIN'])){
 		include("./html/index.html");
 	}else{
@@ -76,9 +76,10 @@ if(isset($_REQUEST['action']) && $_REQUEST['action'] == NULL){
 		$metricslist .= '<option value="'.$m->id.'">'.$m->metrics_text.'</option>';
 		$num++;
 	 }
-	 $lsdata = $db->rawQuery('SELECT me.emp_name AS "empname",mm.metrics_text AS "metricstext",mm.metrics_freq AS "freq" FROM `msc_empmetrics_rel` mer,`msc_employee` me, `msc_metrics` mm WHERE me.id = mer.employee_id AND mm.id = mer.metrics_id');
+	 $lsdata = $db->rawQuery('SELECT me.emp_name AS "empname",mm.metrics_text AS "metricstext",mm.metrics_freq AS "freq" FROM `msc_empmetrics_rel` mer,`msc_employee` me, `msc_metrics` mm WHERE me.id = mer.employee_id AND mm.id = mer.metrics_id AND (me.emp_teamlead = '.$_SESSION["UID"].' OR me.emp_manager='.$_SESSION["UID"].') ORDER BY me.emp_name ASC');
+	 //print_r($lsdata);
 	 foreach ($lsdata as $lst) {
-		$empmetricslist = '<tr><td>'.$lst['empname'].'</td><td>'.$lst['metricstext'].'</td><td>'.getFreqValue($lst['freq']).'</td></tr>';
+		$empmetricslist .= '<tr><td>'.$lst['empname'].'</td><td>'.$lst['metricstext'].'</td><td>'.getFreqValue($lst['freq']).'</td></tr>';
 	 }
 	 
 	include("./html/empmetrics.html");
