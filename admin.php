@@ -45,18 +45,25 @@ if((isset($_REQUEST['action']) && $_REQUEST['action'] == NULL) || !isset($_SESSI
 }else if($_REQUEST['action'] == "attachmetrics"){
 	if(isset($_SESSION['AUTHCODE']) && isset($_POST['authcode']) && $_POST['authcode'] == $_SESSION['AUTHCODE']){
 		//print_r($_POST);
-		$metricrel = dbObject::table("msc_empmetrics_rel");
-		$reldata = Array(
-		'employee_id' => $_POST['employee'],
-		'metrics_id' => $_POST['metrics']
-		);
-		$insrel = new $metricrel($reldata);
-		$id = $insrel ->save();
-		if($id == null){
-			print_r($insrel ->errors);
+		$metrics = dbObject::table("msc_empmetrics_rel");
+		$wherecheck = "employee_id = ".$_POST['employee']." AND metrics_id = ".$_POST['metrics'];
+		$datacheck = $metrics::where($wherecheck)->get();
+		if($datacheck){
+			$ERROR_MSG = "This metrics is already available.<br>Please verify Employee list of Metrics before adding!";
 		}else{
-			//echo "User created with ID:".$id;
-			$SUCCESS_MSG = "Metrics Attached Successfully!";
+			$metricrel = dbObject::table("msc_empmetrics_rel");
+			$reldata = Array(
+			'employee_id' => $_POST['employee'],
+			'metrics_id' => $_POST['metrics']
+			);
+			$insrel = new $metricrel($reldata);
+			$id = $insrel ->save();
+			if($id == null){
+				print_r($insrel ->errors);
+			}else{
+				//echo "User created with ID:".$id;
+				$SUCCESS_MSG = "Metrics Attached Successfully!";
+			}
 		}
 	}
 	global $employeelist;
@@ -86,18 +93,25 @@ if((isset($_REQUEST['action']) && $_REQUEST['action'] == NULL) || !isset($_SESSI
 }else if($_REQUEST['action'] == "mastermetrics"){
 	if(isset($_SESSION['AUTHCODE']) && isset($_POST['authcode']) && $_POST['authcode'] == $_SESSION['AUTHCODE']){
 		//print_r($_POST);
-		$metricrel = dbObject::table("msc_empmetrics_rel");
-		$reldata = Array(
-		'employee_id' => $_POST['employee'],
-		'metrics_id' => $_POST['metrics']
-		);
-		$insrel = new $metricrel($reldata);
-		$id = $insrel ->save();
-		if($id == null){
-			print_r($insrel ->errors);
+		$metrics = dbObject::table("msc_empmetrics_rel");
+		$wherecheck = "employee_id = ".$_POST['employee']." AND metrics_id = ".$_POST['metrics'];
+		$datacheck = $metrics::where($wherecheck)->get();
+		if($datacheck){
+			$ERROR_MSG = "This metrics is already available.<br>Please verify Employee list of Metrics before adding!";
 		}else{
-			//echo "User created with ID:".$id;
-			$SUCCESS_MSG = "Metrics Attached Successfully!";
+			$metricrel = dbObject::table("msc_empmetrics_rel");
+			$reldata = Array(
+			'employee_id' => $_POST['employee'],
+			'metrics_id' => $_POST['metrics']
+			);
+			$insrel = new $metricrel($reldata);
+			$id = $insrel ->save();
+			if($id == null){
+				print_r($insrel ->errors);
+			}else{
+				//echo "User created with ID:".$id;
+				$SUCCESS_MSG = "Metrics Attached Successfully!";
+			}
 		}
 	}
 	global $employeelist;
