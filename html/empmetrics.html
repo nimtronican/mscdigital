@@ -9,6 +9,7 @@
               <div class="ibm-col-4-1"></div>
               <div class="ibm-col-4-2">
               	<?php if(isset($SUCCESS_MSG)){ ?><h1 class="ibm-h3" style="color:#007D31;text-align:center;padding-top:20px;"><?php echo $SUCCESS_MSG; ?></h1><?php } ?>
+                <?php if(isset($ERROR_MSG)){ ?><h1 class="ibm-h3" style="color:#BA0003;text-align:center;padding-top:20px;"><?php echo $ERROR_MSG; ?></h1><?php } ?>
                 <h1 class="ibm-h2" style="text-align:center;padding-top:20px;">Attach Metrics to Employees</h1>
                 <form action="./admin.php?action=attachmetrics" method="post">
                 	<input type="hidden" id="authcode" name="authcode" value="<?php echo $_SESSION['AUTHCODE']?>" />
@@ -32,7 +33,7 @@
             
             <div class="ibm-columns">
                 <div class="ibm-col-6-6" id="metricslist" style="margin-top:20px;border-top:2px solid #CCC;">
-                	<h1 class="ibm-h2" style="text-align:center;padding-top:20px;">List of available Metrics</h1>
+                	<h1 class="ibm-h2" style="text-align:center;padding-top:20px;">Current Attached Employee list with their Metrics</h1>
                     <table id="metricsdata" class="ibm-data-table ibm-grid ibm-altrows" width="100%"> 
                     <thead> 
                         <tr> 
