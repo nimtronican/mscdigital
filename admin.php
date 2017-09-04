@@ -92,6 +92,21 @@ if(isset($_REQUEST['action']) && $_REQUEST['action'] == NULL){
 		$num++;
 	 }
 	include("./html/teamlist.html");
+}else if($_REQUEST['action'] == "fulllist"){
+	global $fulllist;
+	//$_SESSION['AUTHCODE'] = md5(date("H i s"));
+	$employee = $db->rawQuery('SELECT me.*,md.`discipline_name`,mj.`job_name` FROM `msc_employee` me,`msc_discipline` md, `msc_job` mj WHERE md.`id`=me.`emp_discipline` AND mj.`id`=me.`emp_job` ORDER BY me.emp_name ASC');
+	//print_r($db);
+	 $num = 1;
+	 foreach($employee as $emp){
+		//echo $num."&nbsp".getEmpLevel($emp['emp_level'])."<br>";
+		$tms = getTlMngrNames($db,$emp['emp_teamlead'],$emp['emp_manager']);
+		if($emp['emp_teamlead'] > 0)$tlname = $tms[1]['emp_name'];
+		else $tlname = "NA";
+		$fulllist .= '<tr><td>'.$num.'</td><td>'.$emp['id'].'</td><td>'.$emp['emp_ibmid'].'</td><td>'.$emp['emp_name'].'</td><td>'.$emp['emp_email'].'</td><td>'.getEmpLevel($emp['emp_level']).'</td><td>'.$emp['discipline_name'].'</td><td>'.$emp['job_name'].'</td><td>'.$tlname.'</td><td>'.$tms[0]['emp_name'].'</td></tr>';
+		$num++;
+	 }
+	include("./html/fulllist.html");
 }else{
 	echo "Unauthenticated Access";
 }
