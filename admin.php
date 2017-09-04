@@ -76,7 +76,48 @@ if((isset($_REQUEST['action']) && $_REQUEST['action'] == NULL) || !isset($_SESSI
 		$metricslist .= '<option value="'.$m->id.'">'.$m->metrics_text.'</option>';
 		$num++;
 	 }
-	 $lsdata = $db->rawQuery('SELECT me.emp_name AS "empname",mm.metrics_text AS "metricstext",mm.metrics_freq AS "freq" FROM `msc_empmetrics_rel` mer,`msc_employee` me, `msc_metrics` mm WHERE me.id = mer.employee_id AND mm.id = mer.metrics_id AND (me.emp_teamlead = '.$_SESSION["UID"].' OR me.emp_manager='.$_SESSION["UID"].') ORDER BY me.emp_name ASC');
+	 $lsdata = $db->rawQuery('SELECT me.emp_name AS "empname",mm.metrics_text AS "metricstext",mm.metrics_freq AS "freq" FROM `msc_empmetrics_rel` mer,`msc_employee` me, `msc_metrics` mm WHERE me.id = mer.employee_id AND mm.id = mer.metrics_id AND (me.emp_teamlead = '.$_SESSION["UID"].' OR me.emp_manager='.$_SESSION["UID"].' OR me.id='.$_SESSION["UID"].') ORDER BY me.emp_name ASC');
+	 //print_r($lsdata);
+	 foreach ($lsdata as $lst) {
+		$empmetricslist .= '<tr><td>'.$lst['empname'].'</td><td>'.$lst['metricstext'].'</td><td>'.getFreqValue($lst['freq']).'</td></tr>';
+	 }
+	 
+	include("./html/empmetrics.html");
+}else if($_REQUEST['action'] == "mastermetrics"){
+	if(isset($_SESSION['AUTHCODE']) && isset($_POST['authcode']) && $_POST['authcode'] == $_SESSION['AUTHCODE']){
+		//print_r($_POST);
+		$metricrel = dbObject::table("msc_empmetrics_rel");
+		$reldata = Array(
+		'employee_id' => $_POST['employee'],
+		'metrics_id' => $_POST['metrics']
+		);
+		$insrel = new $metricrel($reldata);
+		$id = $insrel ->save();
+		if($id == null){
+			print_r($insrel ->errors);
+		}else{
+			//echo "User created with ID:".$id;
+			$SUCCESS_MSG = "Metrics Attached Successfully!";
+		}
+	}
+	global $employeelist;
+	global $metricslist;
+	global $empmetricslist;
+	//Employee list
+	$_SESSION['AUTHCODE'] = md5(date("H i s"));
+	$employee = $db->rawQuery('SELECT me.id,me.emp_name FROM `msc_employee` me ORDER BY me.emp_name ASC');
+	//dbObject::table("msc_employee")->get();
+	 foreach($employee as $emp){
+		$employeelist .= '<option value="'.$emp['id'].'">'.$emp['emp_name'].'</option>';
+	 }
+	//Metrics list - Dynamic
+	$metrics = dbObject::table("msc_metrics")->get();
+	 $num = 1;
+	 foreach($metrics as $m){
+		$metricslist .= '<option value="'.$m->id.'">'.$m->metrics_text.'</option>';
+		$num++;
+	 }
+	 $lsdata = $db->rawQuery('SELECT me.emp_name AS "empname",mm.metrics_text AS "metricstext",mm.metrics_freq AS "freq" FROM `msc_empmetrics_rel` mer,`msc_employee` me, `msc_metrics` mm WHERE me.id = mer.employee_id AND mm.id = mer.metrics_id ORDER BY me.emp_name ASC');
 	 //print_r($lsdata);
 	 foreach ($lsdata as $lst) {
 		$empmetricslist .= '<tr><td>'.$lst['empname'].'</td><td>'.$lst['metricstext'].'</td><td>'.getFreqValue($lst['freq']).'</td></tr>';
