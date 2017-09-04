@@ -46,7 +46,8 @@ span.psw {
 	float: right;
 	padding-top: 16px;
 }
-tbody th, thead th{min-width:300px;border:1px solid gray;}
+tbody th, thead th{border:1px solid gray;}
+.ibm-data-table th, .ibm-data-table td{padding:10px 5px!important;}
 
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
