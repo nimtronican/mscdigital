@@ -1,0 +1,78 @@
+<?php include("./html/header.html"); ?>
+<!-- Page Content -->
+
+<main role="main" aria-label="">
+  <div id="ibm-pcon">
+    <div id="ibm-content">
+      <div id="ibm-content-body" style="padding-top: 0px;">
+        <div id="ibm-content-main">
+          <div class="ibm-columns ibm-padding-top-1 ibm-alternate-background" data-widget="setsameheight" data-items="> div">
+            <div class="ibm-col-5-1"></div>
+            <div class="ibm-col-5-1 ibm-background-blue-70">
+              <h2>Team:<br><?php echo $_SESSION['USER']['team']?></h2>
+            </div>
+            <div class="ibm-col-5-1 ibm-background-blue-80">
+              <h2>Job Role:<br><?php echo $_SESSION['USER']['role']?></h2>
+            </div>
+            <div class="ibm-col-5-1 ibm-background-blue-90">
+              <h2><?php echo getEmpLevel($_SESSION['ULEVEL'])?></h2>
+            </div>
+            <div class="ibm-col-5-1"></div>
+          </div>
+          <hr>
+          <div class="ibm-columns" data-widget="setsameheight" data-items=".ibm-blocklink">
+            <div class="ibm-col-5-2">
+                <div class="ibm-background-orange-20">
+                    <a href="#" class="ibm-blocklink ibm-highlight-bg-orange-50 ibm-padding-content">
+                        <p class="ibm-padding-bottom-1"><span class="ibm-bold">Add Metrics</span>
+                        <br />Add User Metrics to the System</p>
+                    </a>
+                </div>
+            </div>
+            <div class="ibm-col-5-2 ibm-textcolor-white-core">
+                <div class="ibm-background-purple-50">
+                    <a href="#" class="ibm-textcolor-white-core ibm-blocklink ibm-highlight-bg-purple-50 ibm-padding-content">
+                        <p class="ibm-padding-bottom-0"><span class="ibm-bold">Attach Metrics</span>
+                        <br />Define your Team members metrics</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+          <hr>
+          <div>
+            <div class="ibm-columns ibm-padding-top-1">
+              <!--<table data-widget="datatable" data-scrollaxis="x" class="ibm-data-table" cellspacing="0" cellpadding="0" border="0">
+                <caption>
+                <em>This is the caption element text for this table.</em>
+                </caption>
+                <?php
+                	$dates="";
+                    $vals="";
+                    $limit=31;
+                    for($i=1;$i<=$limit;$i++)
+                    {
+                    	$dates.='<td scope="col">'.sprintf("%02d", $i).'</td>';
+                        $vals.='<td>'.rand(0, 99).'</td>';
+                    } 
+                ?>
+                <thead>
+                  <tr>
+                    <th scope="col">Question</th>
+                    <?php echo $dates;?>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </th>
+                    <?php echo $vals;?>
+                  </tr>
+                </tbody>
+              </table>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<?php include("./html/footer.html"); ?>
