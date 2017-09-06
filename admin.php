@@ -151,15 +151,21 @@ if((isset($_REQUEST['action']) && $_REQUEST['action'] == NULL) || !isset($_SESSI
 }else if($_REQUEST['action'] == "fulllist"){
 	global $fulllist;
 	//$_SESSION['AUTHCODE'] = md5(date("H i s"));
-	$employee = $db->rawQuery('SELECT me.*,md.`discipline_name`,mj.`job_name` FROM `msc_employee` me,`msc_discipline` md, `msc_job` mj WHERE md.`id`=me.`emp_discipline` AND mj.`id`=me.`emp_job` ORDER BY me.emp_name ASC');
+	$employee = $db->rawQuery('SELECT me . * , md.`discipline_name` , mj.`job_name` , tl_name.emp_name AS TL_Name, mg_name.emp_name AS MG_Name
+							FROM `msc_employee` me
+							LEFT OUTER JOIN `msc_discipline` md ON md.`id` = me.`emp_discipline`
+							LEFT OUTER JOIN `msc_job` mj ON mj.`id` = me.`emp_job`
+							LEFT OUTER JOIN `msc_employee` tl_name ON tl_name.id = me.emp_teamlead
+							LEFT OUTER JOIN `msc_employee` mg_name ON mg_name.id = me.emp_manager
+							ORDER BY me.emp_name ASC');
 	//print_r($db);
 	 $num = 1;
 	 foreach($employee as $emp){
 		//echo $num."&nbsp".getEmpLevel($emp['emp_level'])."<br>";
-		$tms = getTlMngrNames($db,$emp['emp_teamlead'],$emp['emp_manager']);
-		if($emp['emp_teamlead'] > 0)$tlname = $tms[1]['emp_name'];
-		else $tlname = "NA";
-		$fulllist .= '<tr><td>'.$num.'</td><td>'.$emp['id'].'</td><td>'.$emp['emp_ibmid'].'</td><td>'.$emp['emp_name'].'</td><td>'.$emp['emp_email'].'</td><td>'.getEmpLevel($emp['emp_level']).'</td><td>'.$emp['discipline_name'].'</td><td>'.$emp['job_name'].'</td><td>'.$tlname.'</td><td>'.$tms[0]['emp_name'].'</td></tr>';
+		//$tms = getTlMngrNames($db,$emp['emp_teamlead'],$emp['emp_manager']);
+		//if($emp['emp_teamlead'] > 0)$tlname = $tms[1]['emp_name'];
+		//else $tlname = "NA";
+		$fulllist .= '<tr><td>'.$num.'</td><td>'.$emp['id'].'</td><td>'.$emp['emp_ibmid'].'</td><td>'.$emp['emp_name'].'</td><td>'.$emp['emp_email'].'</td><td>'.getEmpLevel($emp['emp_level']).'</td><td>'.$emp['discipline_name'].'</td><td>'.$emp['job_name'].'</td><td>'.$emp['TL_Name'].'</td><td>'.$emp['MG_Name'].'</td></tr>';
 		$num++;
 	 }
 	include("./html/fulllist.html");
