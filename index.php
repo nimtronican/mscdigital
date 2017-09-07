@@ -10,26 +10,34 @@ if(!isset($_REQUEST['action']) || isset($_SESSION['LOGIN'])){
 		if(isset($_POST['totinputs']) && $_POST['totinputs']>0 ) {
 			$dmetrics = dbObject::table("msc_data");
 			//Date format: 2017-08-22 02:59:48
-			$indate = $_POST['seldate'];
-			$updatedate = $indate.' '.date('H:i:s');
+			//print_r($_POST);
+			//exit();
+			$updatedate = $_POST['seldate'];
+			$updatetime = date('H:i:s');
 			for($i=0;$i<$_POST['totinputs'];$i++){
 				$currid = $_SESSION['METRICS'][$i];
 				$mval = $_POST['val-'.$currid];
-				$insdata = Array(
-								'empmetrics_rel_id' => $currid,
-								'data_value' => $mval,
-								'data_date' => $updatedate
-							);
-				$insobj = new $dmetrics($insdata);
-				$id = $insobj->save();
-				//print_r($insemp);
-				//echo $db->getLastError;
-				if($id == null){
-					echo "Error";
-					print_r($insobj->errors);
+				$datacheck = $dmetrics::where("empmetrics_rel_id = ".$currid." AND data_date = '".$updatedate."'")->get();
+				//print_r($datacheck);
+				if($datacheck){
+					$ERROR_MSG = "You have already entered Metrics, Please select a different date";
 				}else{
-					//echo "User created with ID:".$id;
-					$SUCCESS_MSG = "Metrics Added Successfully";
+					$insdata = Array(
+									'empmetrics_rel_id' => $currid,
+									'data_value' => $mval,
+									'data_date' => $updatedate,
+									'data_time' => $updatetime
+								);
+					$insobj = new $dmetrics($insdata);
+					$id = $insobj->save();
+					//print_r($insemp);
+					//echo $db->getLastError;
+					if($id == null){
+						echo "Error";
+						print_r($insobj->errors);
+					}else{
+						$SUCCESS_MSG = "Metrics Added Successfully";
+					}
 				}
 			}
 			
@@ -109,24 +117,19 @@ if(!isset($_REQUEST['action']) || isset($_SESSION['LOGIN'])){
 							<div class="ibm-col-5-1"></div>
 						  </div>';
 			$idarr[] = $val['id'];
-			$noentries++;
 			}
 			$historypanel .= "<hr>";
-			$noentries++;
 		 }
 		 for($i=0;$i<$nodays;$i++){
 			 $dval = $dval - 1;
 			 //Weekends exclude
 			 $wkday = date('D',strtotime($dval." days"));
 			 if($wkday != "Sat" && $wkday != "Sun"){
-			 	$datepanel .= '<option value="'.date('Y-m-d').'">'.date('d-M D',strtotime($dval." days")).'</option>';
+			 	$datepanel .= '<option value="'.date('Y-m-d',strtotime($dval." days")).'">'.date('d-M D',strtotime($dval." days")).'</option>';
 			 }
 		 }
-		 
-		 if($noentries>0){
-			 $noentries = '<input type="hidden" name="totinputs" id="totinputs" value="'.$noentries.'" />';
-			 $_SESSION['METRICS'] = $idarr;
-		 }
+		 $_SESSION['METRICS'] = $idarr;
+		 $noentries = '<input type="hidden" name="totinputs" id="totinputs" value="'.count($_SESSION['METRICS']).'" />';
 		include("./html/index.html");
 	}else if(isset($_SESSION['LOGINAUTH']) && isset($_POST['lauthcode']) && $_SESSION['LOGINAUTH'] == $_POST['lauthcode']){
 		$loginret = getLoginDetails($db,$_POST['uname'],$_POST['psw']);
