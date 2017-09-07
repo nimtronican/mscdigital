@@ -56,11 +56,16 @@ if(!isset($_REQUEST['action']) || isset($_SESSION['LOGIN'])){
 			$entryyest = date('d-M',strtotime("-1 days"));
 			$DONEFLG_T = 0;
 			$DONEFLG_Y = 0;
-			
+			$monday = strtotime("last monday");
+			$monday = date('w', $monday)==date('w') ? $monday+7*86400 : $monday;
+			$sunday = strtotime(date("Y-m-d",$monday)." +6 days");
+			$this_week_sd = date("d-M",$monday);
+			$this_week_ed = date("d-M",$sunday);
 			if($dmetricsres){
 				foreach($dmetricsres as $dmr){
 					$dd = date('d-M',strtotime($dmr->data_date));
 					$dateslist .= '<td scope="col">'.$dd.'</td>';
+					if($freqvalue=="Weekly" && date_check_in_range($this_week_sd,$this_week_ed,$dd)){$DONEFLG_T = 1;$DONEFLG_Y = 1;}
 					if($dd == $entrytoday)$DONEFLG_T = 1;
 					if($dd == $entryyest)$DONEFLG_Y = 1;
 					$valuelist .= '<td>'.$dmr->data_value.'</td>';
@@ -111,8 +116,13 @@ if(!isset($_REQUEST['action']) || isset($_SESSION['LOGIN'])){
 		 }
 		 for($i=0;$i<$nodays;$i++){
 			 $dval = $dval - 1;
-			 $datepanel .= '<option value="'.date('Y-m-d').'">'.date('d-M D',strtotime($dval." days")).'</option>';
+			 //Weekends exclude
+			 $wkday = date('D',strtotime($dval." days"));
+			 if($wkday != "Sat" && $wkday != "Sun"){
+			 	$datepanel .= '<option value="'.date('Y-m-d').'">'.date('d-M D',strtotime($dval." days")).'</option>';
+			 }
 		 }
+		 
 		 if($noentries>0){
 			 $noentries = '<input type="hidden" name="totinputs" id="totinputs" value="'.$noentries.'" />';
 			 $_SESSION['METRICS'] = $idarr;
