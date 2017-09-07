@@ -1,14 +1,5 @@
-# PHP Hello World Sample
+# Marketing Services Center(MSC) - Digital Team Daily Metrics application
 
-This application demonstrates a simple, reusable PHP web application.
+## Created and Managed by MSC-Digital
 
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/IBM-Bluemix/php-helloworld)
-
-## Run the app locally
-
-1. Download and extract [PHP][]
-+ cd into this project's root directory
-+ Run `php -S localhost:8000` to start the app using the built-in development web server
-+ Access the running app in a browser at <http://localhost:8000>
-
-[PHP]: http://php.net/downloads.php
+Note: This is not a public common purpose application
