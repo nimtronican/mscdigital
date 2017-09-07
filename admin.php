@@ -169,6 +169,66 @@ if((isset($_REQUEST['action']) && $_REQUEST['action'] == NULL) || !isset($_SESSI
 		$num++;
 	 }
 	include("./html/fulllist.html");
+}else if($_REQUEST['action'] == "editdetails"){
+	if(isset($_SESSION['AUTHCODE']) && isset($_POST['authcode']) && $_POST['authcode'] == $_SESSION['AUTHCODE'] && $_POST['dbid'] == $_SESSION['UID']){
+		//print_r($_POST);
+		$currID = $_SESSION['UID'];
+		//$employee = dbObject::table("msc_employee");
+		//print_r($_POST);
+		if($_POST['teamlead']=="")$_POST['teamlead']=0;
+		$empdata = Array(
+			'emp_name' => $_POST['flname'],
+			'emp_level' => $_POST['emplevel'],
+			'emp_discipline' => $_POST['discipline'],
+			'emp_job' => $_POST['jobrole'],
+			'emp_teamlead' => $_POST['teamlead'],
+			'emp_manager' => $_POST['manager']
+		);
+		//print_r($empdata);
+		$db->where('id',$currID);
+		$insemp = $db->update("msc_employee",$empdata);
+		//print_r($insemp);
+		//print_r($insemp);
+		//echo $db->getLastError;
+		if($db->count < 0){
+			echo "Error";
+			print_r($insemp->errors);
+		}else{
+			$ERROR_MSG = "Your Account Updated successfully.";
+		}
+	}else{
+		global $teamselect;
+		global $jobselect;
+		global $tlselect;
+		global $managerselect;
+		global $empdata;
+		$employee = dbObject::table("msc_employee");
+		$emparr = $employee::where("id",$_SESSION['UID'])->get();
+		foreach ($emparr as $empdata){
+			$empdata = $empdata;
+		}
+		$_SESSION['AUTHCODE'] = md5(date("H i s"));
+		$teams = dbObject::table("msc_discipline")->orderBy("discipline_name","asc")->get();
+		$jobs = dbObject::table("msc_job")->orderBy("job_name","asc")->get();
+		
+		$teamleads = $employee::where("emp_level","1")->orderBy("emp_name","asc")->get();
+		$managers = $employee::where("emp_level","2")->orderBy("emp_name","asc")->get();
+		foreach($teams as $t){
+			$teamselect .= '<option value="'.$t->id.'" '.(($empdata->emp_discipline == $t->id) ? 'selected':'').'>'.$t->discipline_name.'</option>';
+		}
+		foreach($jobs as $j){
+			$jobselect .= '<option value="'.$j->id.'" '.(($empdata->emp_job == $j->id) ? 'selected':'').'>'.$j->job_name.'</option>';
+		}
+		if($teamleads != NULL){
+			foreach ($teamleads as $tls){
+				$tlselect .= '<option value="'.$tls->id.'" '.(($empdata->emp_teamlead == $tls->id) ? 'selected':'').'>'.$tls->emp_name.'</option>';
+			}
+		}
+		foreach ($managers as $m){
+				$managerselect .= '<option value="'.$m->id.'" '.(($empdata->emp_manager == $m->id) ? 'selected':'').'>'.$m->emp_name.'</option>';
+		}
+	}
+	include("./html/editemployee.html");
 }else{
 	echo "Unauthenticated Access";
 }
