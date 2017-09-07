@@ -39,6 +39,9 @@
   <div class="ibm-sitenav-menu-name"><a href="./index.php" style="font-weight: bold;">Marketing Services Center(MSC) - Digital</a></div>
   <div class="ibm-sitenav-menu-list">
     <ul role="menubar">
+    <li role="presentation">
+      <span role="menuitem"><a href="./index.php">My Metrics</a></span>
+    </li>
     <?php if(isset($_SESSION['ULEVEL']) && $_SESSION['ULEVEL'] > 0) {?>
     <li role="presentation" class="ibm-haschildlist">
       <span role="menuitem">Admin Tools</span>
@@ -58,6 +61,8 @@
     <li role="presentation" class="ibm-haschildlist">
       <span role="menuitem">Settings</span>
       <ul role="menu">
+        <li><a href="./admin.php?action=editdetails">Edit Profile</a>
+        </li>
         <li><a href="./index.php?logout">Logout</a>
         </li>
       </ul>

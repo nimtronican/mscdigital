@@ -1,0 +1,72 @@
+<?php include("./html/header.html"); ?>
+  <!-- Page Content -->
+  <main role="main" aria-label="">
+    <div id="ibm-pcon">
+      <div id="ibm-content">
+        <div id="ibm-content-body" style="padding-top: 0px;">
+          <div id="ibm-content-main">
+            <div class="ibm-columns" data-widget="setsameheight">
+              <div class="ibm-col-4-1"></div>
+              <div class="ibm-col-4-2">
+              <?php if($ERROR_MSG == NULL){ ?>
+                <h1 class="ibm-h2" style="text-align:center;padding-top:20px;">Registration of Employee details</h1>
+                <form action="./admin.php?action=editdetails" method="post">
+                	<input type="hidden" id="authcode" name="authcode" value="<?php echo $_SESSION['AUTHCODE']?>" />
+                    <input type="hidden" id="dbid" name="dbid" value="<?php echo $_SESSION['UID']?>" />
+                    <input type="hidden" id="emailid" name="emailid" value="<?php echo $empdata->emp_email?>" />
+                    <input type="hidden" id="empid" name="empid" value="<?php echo $empdata->emp_ibmid?>" />
+                  <div class="container">
+                    <label style="padding-top:10px;"><b>Full Name</b></label>
+                    <input type="text" placeholder="Example: John Watson" id="flname" name="flname" value="<?php echo $empdata->emp_name?>" required>
+                    <label><b>IBM Email ID</b></label>
+                    <input type="email" placeholder="Example: watson@in.ibm.com" id="emailid-dummy" name="emailid-dummy" value="<?php echo $empdata->emp_email?>" disabled>
+                    <label style=""><b>IBM Employee ID</b></label>
+                    <input type="text" placeholder="Example: 084582R - ALL CAPS" id="empid-dummy" name="empid-dummy" value="<?php echo $empdata->emp_ibmid?>" disabled>
+                    <label style=""><b>Employee Type</b></label>
+                    <select id="emplevel" name="emplevel" required>
+                        <option value="">Select one</option>
+                        
+                        <option <?php if($empdata->emp_level == 0) echo 'selected' ?> value="0">Individual Contributor</option>
+                        <option <?php if($empdata->emp_level == 1) echo 'selected' ?> value="1">Team Lead</option>
+                        <option <?php if($empdata->emp_level == 2) echo 'selected' ?> value="2">Manager</option>
+                    </select>
+                    <label style=""><b>Select your Team</b></label>
+                    <select id="discipline" name="discipline" required>
+                        <option value="">Select one</option>
+                        <?php echo $teamselect; ?>
+                    </select>
+                    <label style=""><b>Select Job Role</b></label>
+                    <select id="jobrole" name="jobrole" required>
+                        <option value="">Select one</option>
+                        <?php echo $jobselect; ?>
+                    </select>
+                    <label style=""><b>Select your Team Lead</b>(Not Mandatory)</label>
+                    <select id="teamlead" name="teamlead">
+                        <option value="">Select one</option>
+                        <?php echo $tlselect; ?>
+                    </select>
+                    <label style=""><b>Select your Manager</b></label>
+                    <select id="manager" name="manager" required>
+                        <option value="">Select one</option>
+                        <?php echo $managerselect; ?>
+                    </select>
+                    <label></label>
+                    <button type="submit" class="ibm-btn-pri ibm-btn-teal-50 ibm-fullwidth">Update Details</button>
+                    
+                  <!--<div class="container" style="background-color:#f1f1f1">
+                    <button type="button" class="cancelbtn">Cancel</button>
+                    <span class="psw">Forgot <a href="#">password?</a></span></div>--> 
+                </form>
+                <?php } else {?>
+                <h1 class="ibm-h2" style="text-align:center;padding-top:20px;"><?php echo $ERROR_MSG; ?></h1>
+                <?php  } ?>
+              </div>
+              <div class="ibm-col-4-1"></div>
+            </div>
+          </div>
+          <p class="ibm-ind-link ibm-nospacing ibm-icononly ibm-btt-auto ibm-hidden-small"><a tabindex="-1" href="#top" class="ibm-nospacing ibm-chevron-up-link">Back to top</a></p>
+        </div>
+      </div>
+    </div>
+  </main>
+<?php include("./html/footer.html"); ?>
