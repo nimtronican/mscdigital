@@ -47,7 +47,7 @@ if(!isset($_REQUEST['action']) || isset($_SESSION['LOGIN'])){
 		 global $datepanel;
 		 global $historypanel;
 		 $noentries = 0;
-		 $nodays = 2;
+		 $nodays = 3;
 		 $dval = 1;
 		 $stt = "";
 		 $idarr = array();
@@ -126,11 +126,19 @@ if(!isset($_REQUEST['action']) || isset($_SESSION['LOGIN'])){
 			 $wkday = date('D',strtotime($dval." days"));
 			 if($wkday != "Sat" && $wkday != "Sun"){
 			 	$datepanel .= '<option value="'.date('Y-m-d',strtotime($dval." days")).'">'.date('d-M D',strtotime($dval." days")).'</option>';
+			 }else{
+				if($wkday == "Sun"){
+					$dval = $dval - 2;
+				 	$datepanel .= '<option value="'.date('Y-m-d',strtotime($dval." days")).'">'.date('d-M D',strtotime($dval." days")).'</option>';
+				}else{
+					$dval = $dval - 1;
+					$datepanel .= '<option value="'.date('Y-m-d',strtotime($dval." days")).'">'.date('d-M D',strtotime($dval." days")).'</option>';
+				}
 			 }
 		 }
 		 $_SESSION['METRICS'] = $idarr;
 		 $noentries = '<input type="hidden" name="totinputs" id="totinputs" value="'.count($_SESSION['METRICS']).'" />';
-		include("./html/index.html");
+		 include("./html/index.html");
 	}else if(isset($_SESSION['LOGINAUTH']) && isset($_POST['lauthcode']) && $_SESSION['LOGINAUTH'] == $_POST['lauthcode']){
 		$loginret = getLoginDetails($db,$_POST['uname'],$_POST['psw']);
 		//$discjob = getDiscJob($db,$loginret['emp_discipline'],$loginret['emp_job']);//DBlink,team,jobrole
